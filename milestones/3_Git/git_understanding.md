@@ -191,4 +191,66 @@ For `git bisect`:
 - It is a more efficient search, using binary search algorithm reduces effort from N commits to about log2(N) tests. SO if you have 128 commits, you only need to review about 7 commits.
 
 
+---
+# Merge Conflicts
 
+### What caused the conflict?
+The conflict happened because two different branches modified the same section of the file. When I tried to merge them, Git couldn’t automatically decide which version of the changes should be kept. So, both branches had edits to the same lines, so Git flagged it as a merge conflict.
+
+### How did you resolve it?
+- Opened the file and looked at the conflict markers (<<<<<<<, =======, >>>>>>>).
+- I compared the changes from both branches, decided which parts to keep, and in some cases combined the edits manually.
+- I removed the conflict markers, saved the file, staged git add, and completed the merge with git commit.
+
+### What did you learn?
+- Resolving merge conflics requires great attention to detail and the importance of clear commit messages which make it easier to understand what each branch is doing when conflicts arise.
+
+---
+
+# Staging VS Committing 
+
+### What is the difference between staging and committing?
+
+**Staging:**
+Imagine you are a customer doing online shopping at Coles. Your browse through all the products and pages and add some of those on-sale products to your shopping cart. In this case, you are staging your changes in a shopping cart. Products are there ready to be paid for when you go to checkout but you can keep adding stuff to it or remove some from it.
+
+**Comitting:**
+When you head to checkout and go to pay for the products in the shopping cart, this is basically "committing" your changes. There is now a record (receipt) somewhere of what you have bought from Coles.
+
+Note: you can easily remove/add products to the staging (shopping cart) but it is harder to add/remove items after the staging area (already paid for).
+
+### Why does Git separate these two steps?
+There are many benefits in having 2 steps.
+
+If makes your commits clearer and concise. You may have multiple changes to multiple files. These changes could be related or unrelated to each other. Thus, you can choose which files to add to the staging area and make sure that all changes related to each other are in one commit. So, you may have multiple changes in your working directory, but not all are ready to be committed and staging lets you pick and choose.
+
+### When would you want to stage changes without committing?
+I would stage changes without committing when:
+
+1. I have partially finished a feature and want to save some changes for the next commit, but not all changes
+2. Use as a checkpoint. As I work on the project, I will stage as I go but only commit to the repo when I have finalised these changes.
+3. I have edited multiple things in one file, but only some belong to the current commit.
+
+---
+
+# Branching & Team Collaboration
+
+### Why is pushing directly to main problematic?
+Directly pushing into main is forbidden in many project team environments.
+
+1. Risk of breaking feautures: If your main branch is where production code is placed, then pushing direclty into main increases the likelihood of changes breaking.
+2. No organisation. It results unclear changes as they are not organised into feature and development branches
+3. Harder collaboration. Peers will have a more difficult time in understanding a bundle of commits
+4. Reduces likelihood of conflicts and overwriting files
+
+### How do branches help with reviewing code?
+In project teams, developers should work on a feautre in a separate branch without touching the main branch.
+In each feautre branch, we can run tests, CI pipelines, or QA reviews without affecting the stable branch. Thus, this makes it clearer which commits belong to which feature or fix.
+
+Additionally, you can open a PR to let other peers review your changes before deciding to merge into the main branch.
+
+
+### What happens if two people edit the same file on different branches?
+If multiple developers work on thesame file but on different branches, we know that the changes are made safely on their respective branches, not affecting main branch. If the developers decide to merge their changes with each other (i.e. both edited the same file), a merge conflict would definitely occur. In this case, Git asks you to decide which changes to keep (or how to merge them). However, it will merge automatically if the edits touch different lines of code.
+
+---
