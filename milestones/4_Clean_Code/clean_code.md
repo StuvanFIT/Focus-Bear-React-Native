@@ -164,8 +164,64 @@ In this example, `isUserLoggedIn` clearly indicates its purpose as a boolean var
 
 The code is now easier to follow, without the need of comments. Thus, this improves code readability, meaning that other developers (or future me) can understand the code instantly without needing extra comments. Refactoring unclear names improved the code’s readability and reduced potential confusion.
 
+---
+
+# Writing Small and Focused Functions
+
+### Why breaking down functions are beneficial?
+In every project setting, you will end up having a specific file or component that contains a billion lines of code and does way too many things. This may include rendering or displaying the UI, executing backend methods or calling other functions. We call these types of classes/components "GOD CLASSES", where they have too many responsibilities, violating the Single Responsibility Principle.
+
+In this case, we need to break down functions into smaller, modular and single-purpose as it makes our code:
+- Way easier to read. It improves code readability. If every function had a clear, descriptive name and limited responsibility, developers can quickly understand what it does.
+- Minimises the occurrence of god classes and long files.
+- Simpler for debugging. When a feature causes an error, it is easier to pin point where the issue occurred in a specific function
+- Maintainable. If business logic changes, you can update only the relevant part without touching unrelated code.
+- Testable. Easier to test applications that have modularised functions
 
 
+
+The below example shows a long complex function being refactored into a smaller but focused function:
+
+Martinez, Y. (2023). "The Power of small and focused functions in software development". DEV. [Online].Reviewed on 08/10/2025.
+https://dev.to/yabetancourt/the-power-of-small-and-focused-functions-in-software-development-37k1
+
+### Before Refactoring (Long and Complex Function)
+```
+public double calculateTotalPrice() {
+  double totalPrice = 0.0;
+  // Calculate the price of each item
+  // Apply discounts to the total price
+  // Calculate tax on the total price
+  return totalPrice;
+}
+```
+
+Here, `calulcateTotalPrice` has 3 responsibilities: calculating the price of each item, applying discounts to the total price, and calculating the tax on the total price.
+
+### After Refactoring (Short and Simpler Functions)
+```
+public double calculateTotalPrice() {
+  double totalPrice = 0.0;
+  totalPrice += calculateItemPrice();
+  totalPrice -= applyDiscounts();
+  totalPrice += calculateTax();
+  return totalPrice;
+}
+
+public double calculateItemPrice() {
+  // Calculate the price of each item
+}
+
+public double applyDiscounts() {
+  // Apply discounts to the total price
+}
+
+public double calculateTax() {
+  // Calculate tax on the total price
+}
+```
+
+Each function performs a specific task and are used to calcualte the total price. The code is modularised and every function has a clear purpose and is much more readable.
 
 
 
