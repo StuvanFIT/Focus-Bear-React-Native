@@ -321,6 +321,61 @@ With this change, it resulted in:
 - Just call with a new type argument
 - Concise and expressive
 
+---
+
+# Refactoring Code For simplicity
+Refactoring techniques are used to improve the code readability, maintainability and modularity by restructing the code without drastically changing the intended/external behaviour.
+
+These are some refactoring techniques I use throughout my codebase development cycle:
+- **Extract Function/Method**: If I see a function or component that has more than one responsibility or is doing to many things, then I would move the block of code that performs a specific task into its own method or function.
+- **Removing complicated If or switch logic**: If I see a long chain of if-else statements, then thats probably a sign of needing to be refactored. 
+- **Replacing magic numbers with constants**: magic numbers tell us nothing. I try not to use magic numbers ever.
+- **Modularity**: Mostly trying to follow and enforce the DRY/SRP principles
+
+Below is an example of complex code and the refactored simplified version:
+
+
+### Before Refactoring
+```
+function getUserStatus(user) {
+    if (user !== null && user !== undefined){
+        if (user.age >18){
+            if (user.isActive) {
+                return "Active Adult"
+            } else {
+                return "Inactive Adult"
+            }
+        } else {
+            if (user.isActive) {
+                return "Active Minor";
+            } else {
+                return "Inactive Minor";
+            }
+        }
+    } else {
+        return "Unknown Status"
+    }
+}
+```
+The original function had deeply nested `if` statements, repeated logic for adults and minors, and redundant null checks. It was difficult to quickly see the logic or make changes without risking bugs. Imagine if we had 100 if statements? How long would that refactoring session take? So, for the sake of my future self and other developers who may update this function, we need to refactor this function to make it simpler to improve code maintainability.
+
+### After Refactoring
+```
+function getUserStatus(user){
+    if (!user) return "Unknown Status";
+
+    const ageRange = user.age >=18 ? "Adult" : "Minor"
+    const activity = user.isActive ? "Active" : "Inactive"
+
+    return `${activity} ${ageRange}`;
+}
+```
+In the refactored version, we:
+- Use early returns to simplify the null checks
+- Replaced multiple `if` blocks with expressions for readability.
+- Removes the repetition by dynamically composing the return string.
+- Onserved that the refactored version is much cleaner, concise and easier to maintain while keeping the exact same behaviour/functionality.
+
 
  
 
