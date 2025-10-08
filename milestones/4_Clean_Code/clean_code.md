@@ -1,3 +1,5 @@
+
+---
 # Clean Code Principles
 
 **"Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.- John Woods"**
@@ -70,6 +72,32 @@ https://fathinah.medium.com/clean-vs-dirty-code-in-react-24e8fee03858
 This is a poor example of variable naming. If a new developer in the future were to look at this at first glance, it would be very confusing to gain any context and functionality of the component. It is not intuitive and will be difficult to refer to them later. Below is a better example of naming variables that gives the user some info.
 
 ![alt text](/milestones/Images/goodNamingVariablesReact.png)
+
+---
+
+# Code Formatting and Style Guide
+
+### Why is Code Formatting important?
+From past project experiences, I realised that having a consistent code formatting improves code readbability, maintainability and even team collaboration. It is satisfying when all developers in the team follow the same conventions and the focus shifts from style debates to actual problem-solving. We spend less overhead costs in resolving styling issues and focus on whats important.
+
+Additionally, it also helps reduce bugs caused by inconsistent syntax or structure. A uniform style makes it easier to understand code written by others and spot logic errors quickly.
+
+### What issues did the linter detect? Did formatting the code make it easier to read?
+Here is the ESLINT configuration for a project I am currently working on:
+https://github.com/Monash-FIT3170/2025W2-Skilltree/blob/m4-sprint2/eslint.config.mjs
+
+When I use ESLINT + PRETTIER in my development environmnet, the linter usually spots these issues:
+- Potential errors and bugs. This includes warnings such as unused variables,undefined variables and missing imports.
+- Missing semicolons
+- Inconsistent spacing (white space) and trailing whitespace
+
+Inconsistent indentations makes code unreadable and is hard to track the overall flow of functions.
+
+After using ESLINT +PRETTIER to format the code, the code became readable and made it easier to review. Additionally, it also renders warnings whenever you have unused variables. Sometimes when I have a specific import but then decide that I no longer need it, I forget to delete the import and I have a bunch of unused variables lying around in the file. ESLINT reminds me to deal with the unused variables before I push my changes.
+
+
+
+
 
 
 
