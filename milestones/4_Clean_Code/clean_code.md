@@ -223,6 +223,106 @@ public double calculateTax() {
 
 Each function performs a specific task and are used to calcualte the total price. The code is modularised and every function has a clear purpose and is much more readable.
 
+---
+
+# Avoiding Code Duplication
+
+### What is the DRY (DONT REPEAT YOURSELF) Principle?
+DRY is a software development principle that aims to encourage software developers to avoid duplicating code in a system.
+- When adhering to the principle, developers aim to create reusable components, functions or modules that can be utilised in various parts of codebase. This very important in React projects.
+- This makes the codebase maintainable and also minimises the likelihood of errors and bugs, since changes or updates only need to be implemented in one location.
+- You might hear another principle that is used in conjuction with DRY, called the SINGLE REPONSIBILITY PRINCIPLE (SRP). SRP is similar and encourages the idea that a module, class, or function should have only one reason to change.
+
+Below is an example of duplicated code and the refactored version
+https://gist.githubusercontent.com/NyaGarcia/7f19fcd5211dc9b99fa1a957c9219f68/raw/f7d2f7b71393bc07d8731a087fd043d0f982d5fd/duplication.js
+
+### Before Refactoring (lots of duplication)
+
+```
+function getJavascriptNews() {
+    const allNews = getNewsFromWeb();
+    const news = [];
+ 
+    for (let i = allNews.length - 1; i >= 0; i--){
+        if (allNews[i].type === "javascript") {
+            news.push(allNews[i]);
+        }
+    }
+ 
+    return news;
+}
+ 
+function getRustNews() {
+    const allNews = getNewsFromWeb();
+    const news = [];
+ 
+    for (let i = allNews.length - 1; i >= 0; i--){
+        if (allNews[i].type === "rust") {
+            news.push(allNews[i]);
+        }
+    }
+ 
+    return news;
+}
+
+function getGolangNews() {
+  const news = [];
+  const allNews = getNewsFromWeb();
+
+  for (let i = allNews.length - 1; i >= 0; i--) {
+    if (allNews[i].type === 'golang') {
+      news.push(allNews[i]);
+    }
+  }
+
+  return news;
+}
+```
+
+If you inspect the code above, we noticed that all functions and methods are very similar, the only difference being the "type" of news being retrieved from allNews. Having 3 methods is pointless and we can combine this inot one reusable function that can be applied anywhere in the codebase provided they have a "type".
+If a change is neede in how you retrieve news, we would need to update logic or perform editing in three places.
+
+
+### After Refactoring (minimised duplication)
+```
+function getNewsByType(type) {
+    const allNews = getNewsFromWeb();
+    const filteredNews = [];
+ 
+    for (let i = allNews.length - 1; i >= 0; i--){
+        if (allNews[i].type === type) {
+            filteredNews.push(allNews[i]);
+        }
+    }
+    return filteredNews;
+}
+
+const javascriptNews = getNewsByType("javascript");
+const rustNews = getNewsByType("rust");
+const golangNews = getNewsByType("golang");
+```
+
+OR we can do this
+```
+function getNewsByType(type) {
+  return getNewsFromWeb()
+    .filter(newsItem => newsItem.type === type)
+    .reverse();
+}
+
+const javascriptNews = getNewsByType("javascript");
+const rustNews = getNewsByType("rust");
+const golangNews = getNewsByType("golang");
+```
+
+With this change, it resulted in:
+- One reusable function
+- Able to be updated in only one place
+- Just call with a new type argument
+- Concise and expressive
+
+
+ 
 
 
 
