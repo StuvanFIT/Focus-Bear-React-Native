@@ -374,10 +374,72 @@ In the refactored version, we:
 - Use early returns to simplify the null checks
 - Replaced multiple `if` blocks with expressions for readability.
 - Removes the repetition by dynamically composing the return string.
-- Onserved that the refactored version is much cleaner, concise and easier to maintain while keeping the exact same behaviour/functionality.
+- Observed that the refactored version is much cleaner, concise and easier to maintain while keeping the exact same behaviour/functionality.
 
+---
 
+# Commenting & Documentation
+
+In large project teams, I definitely appreciate documentation as helpful comments and documentation improve code maintainability without creating any extra noise, technical debt or adding any unneeded cognitive load.
+
+- Explain WHY, not WHAT
+    - Documentation and comments should capture the intent and design-rationale behind the decision. Often times I see developers writing comments on what the code does. Most of the time this is ok, but if the code already shows what it does and can be interpreted, a comment that repeats it adds no real value.
+
+- Comment every complex or ambiguous section
+    - If you write a piece of code thats not immediately obvious in its purpose, try to add a comment to explain it. Comments should provide additional context and reasoning for the code that follows.
+
+- Keep comments and documentation concise and accurate
+    - A good comment is short, precise, and maintained alongside code changes. If the comment becomes stale, it’s worse than no comment because it misleads readers.
+
+- Avoid redundant comments
+    - Comments that simply restate the code ("increment by +1") or copy-paste trivial descriptions add significant cognitive load to us developers.
+    - Redundant comments creates too much noise
+    - If you are writing comments for the sake of doing so, then this is bad practice. Writing lots of comments isnt bas practice however, the comments need to be useful and serve meaningful context value
+
+### Poor Example of Commenting and Documentation
+https://stackoverflow.com/questions/143429/whats-the-least-useful-comment-youve-ever-seen
+
+```
+// This method takes two integer values and adds them together via the built-in
+// .NET functionality. It would be possible to code the arithmetic function
+// by hand, but since .NET provides it, that would be a waste of time
+private int Add(int i, int j) // i is the first value, j is the second value
+{
+    // add the numbers together using the .NET "+" operator
+    int z = i + j;
+
+    // return the value to the calling function
+    // return z;
+
+    // this code was updated to simplify the return statement, eliminating the need
+    // for a separate variable.
+    // this statement performs the add functionality using the + operator on the two
+    // parameter values, and then returns the result to the calling function
+    return i + j;
+}
+```
+
+A poor example would be something along the lines of the above. The comments restate the obvious. The code itself is very simple and clearly shows that we are adding to integers together. Explaining the .NET FUNCTIONALITY and + operator adds no real value to the code. Excessive comments make the code visually noisy, burying the actual logic in filler text. When every line is commented, we start ignoring comments altogether, even when something important actually is noted elsewhere.
+
+### Good Example of Commenting and Documentation (in this example, we are adhering to C# documentation)
+```
+/// <summary>
+/// Adds two integers and returns the result.
+/// </summary>
+/// <param name="i">The first integer value.</param>
+/// <param name="j">The second integer value.</param>
+/// <returns>The sum of both integers.</returns>
+
+private int Add(int i, int j) {
+    return i + j;
+}
+
+```
+In this version, we are:
+- adhering to XML documentation comments and is standard across C#
+- Explains purpose and parameters
+- Way more clean and concise
  
-
+---
 
 
