@@ -95,7 +95,74 @@ Inconsistent indentations makes code unreadable and is hard to track the overall
 
 After using ESLINT +PRETTIER to format the code, the code became readable and made it easier to review. Additionally, it also renders warnings whenever you have unused variables. Sometimes when I have a specific import but then decide that I no longer need it, I forget to delete the import and I have a bunch of unused variables lying around in the file. ESLINT reminds me to deal with the unused variables before I push my changes.
 
+---
 
+# Naming Variables & Functions
+To effectively name variables and functions, developers need to use descriptive, consistent and follow established or widely used conventions like the camelCase or snake_case. I would prefer to have peers who follow an established guideline as it makes it easier for us to adjust to and increases the likelihood of developers having consistent naming.
+
+### What makes a good variable or Function Name?
+To me, a good variable or Function name should be:
+- Be concise, but meaningful. Outside developers should be able to glance at the name and have a brief idea of what its purpose is
+- Descriptive and context specific. This means that the name clearly indicates what the variable or function represents or does. For example:
+
+    Instead of
+    ```
+    const x = 22
+
+    x doesnt tell me anything. x could mean anything here (i.e. the number of dogs I have etc)
+    ```
+    Do this
+    ```
+    const userAge = 22
+    ```
+
+    Instead of
+    ```
+    calculate()
+    ```
+    Do this
+    ```
+    calculateTotalPrice()
+    ```
+
+- A project team should follow a well established naming convention such as camelCase for variables, PascalCase for classes
+- Commonly, I shoudl expect to see NOUNS for VARIABLES & VERBS for FUNCTIONS (depends on the context)
+- Avoid abbreviations or unclear acronyms unless they are widely understood (e.g., id, URL, API).
+
+
+### What issues can arise from poorly named variables?
+Poorly named variables commonly leads to:
+- Confusion and bugs - Developers might misinterpret what a variable or function does.
+Example: If a function named `getUser()` actually creates a `user`, it causes misunderstanding.
+- Forces the develope to "guess" or make an implication. For example, I remember naming a component `Authlayout`, for the purpose of creating a wrapper/container for the sign in and log in page. However, my peers interpreted it as the wrapper template for the reset/forgot password forms but already have their own layout. Thus, we had to change it to `AccountLayout` as it was understood better by everyone else.
+- Harder debugging and maintenance - Future developers waste time trying to figure out meaning.
+- It creates an inconsistent codebase - When naming conventions aren’t followed, it breaks readability.
+
+
+Example of Poor Naming of Variables and Functions
+```
+let x = false //user is logged in or not
+const y = 100 //max number of items
+
+//get user data
+function handle(){
+    // ...
+}
+```
+
+Example of Good naming of variables and functions
+```
+let isUserLoggedIn = auth().currentUser;
+const maxNumberOfItems = 100;
+
+function fetchUserDetails() {
+    // Fetch user data from API
+}
+
+```
+In this example, `isUserLoggedIn` clearly indicates its purpose as a boolean variable. The develope now knows what the value fo 100 means here. The function name `fetchUserDetail()` also reflects the purpose of the function, which is to retrieve the user details from the API.
+
+The code is now easier to follow, without the need of comments. Thus, this improves code readability, meaning that other developers (or future me) can understand the code instantly without needing extra comments. Refactoring unclear names improved the code’s readability and reduced potential confusion.
 
 
 
