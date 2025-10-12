@@ -17,15 +17,14 @@ jobs:
         with:
           node-version: 20
 
-      - name: 3. Install linters
-        run: |
-          npm install -g markdownlint-cli cspell
+      - name: 3. Install dependencies
+        run: npm ci
 
-      - name: 4. Run Markdown lint
-        run: markdownlint "**/*.md"
+      - name: 4. Install cspell
+        run: npm install -g cspell
 
-      - name: 5. Run Spell Check
+      - name: 5. Run Markdown lint
+        run: npm run lint:md
+
+      - name: 6. Run Spell Check
         run: cspell "**/*.md" --no-progress --color
-
-  
-
