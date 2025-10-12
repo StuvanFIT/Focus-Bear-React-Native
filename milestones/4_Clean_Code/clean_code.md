@@ -595,3 +595,39 @@ This lets us get a better idea of where to locate the an error if it pops up.
 - Improves the user experience and integrity by giving clear feedback on the success and failure of the application state
 - The use of guard clauses makes the code cleaner and reliable.
 
+---
+
+# Unit Testing
+Definition: Unit testing is the practice of writing automated tests for your code (usually individual functions or modules). Usually is small pieces of your code, to ensure that each part of your code base behaves as expectedly and there are no unexpected results, even after code changes.
+
+### Test-Driven Development: Red -> Green -> Refactor method
+Test-Driven Development (TDD) is a software development process where you:
+- Write tests before writing code.
+- Use those tests to guide your implementation.
+- Continuously improve both the code and tests.
+This process encourages clean, modular, and bug-free code by making testing part of your development workflow.
+
+It essentially follows 3 steps:
+- RED: Write a failing test that defines a new function or behavior. See the test fail (because you haven’t written the code yet).
+- GREEN: Write the minimum code necessary to make the test pass. Get a passing test, even if the solution isn’t perfect.
+- REFACTOR: Clean the code up by improving efficiency or structure etc. The goal here is to keep all tests passing while improving code quality.
+
+### How do unit tests help keep clean code?
+Writing unit tests enforce good software development habits:
+- The need to test functions leads to predictable input/output patterns and fewer side effects.
+- Writing testable code means avoiding large, complex functions that are hard to isolate.
+- Immediate feedback loop
+- Enforces a clear design in your code base
+- Enforces modular functions/modules to be tested
+
+### Jest: Javascript
+in the `Unit Testing/Jest` working directory, I used Jest and Javascript to test a simple `sum` function to add two numbers.
+I made sure to include simple valid inputs and edges such as adding integers and strings and their expected results. Aditionally, I also tested another simple function `isUserLoggedIn` to check if the userId was valid or not.
+
+### Any issues while unit testing?
+I didnt really come across any direct issues to do with the actual testing experience. However, it became clear that to do high quality testing, you needed high quality test cases. In order to achieve this, you need a good understanding of your application and all of its edge cases. If you miss one, then it can lead to potential bugs or defects that are missed.
+
+Additionally, I had to run `npm run test` every iteration which was tiring. Thus, i automated the process using the extension `Jest Explorer`.
+
+---
+
