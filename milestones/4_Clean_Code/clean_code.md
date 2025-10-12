@@ -442,4 +442,156 @@ In this version, we are:
  
 ---
 
+# Handling Error & Edge Cases
+
+These are some common strategies to handle errors:
+- Always assume something will go wrong in your code. This includes always checking API responses, null or defined outputs etc.
+- Display meaningful error messages to pin point where the error has occured.
+- Safe guard like TRY-CATCH blocks to catch runtime errors in operations and always catch the error and display the message via `error.message` etc.
+- Include Guard Clauses like `if (!user) return null;`
+
+### No handling Errors and edge cases
+The below example uses a Meteor JS framework and MongoDB database to insert skills to the users profile.
+```
+// /imports/api/skills/methods.js
+
+import { Meteor } from 'meteor/meteor';
+import { SkillsCollection } from '/imports/db/SkillsCollection';
+
+Meteor.methods({
+  'skills.add'(skillName) {
+    // Directly inserts without validation
+    SkillsCollection.insert({
+      name: skillName,
+      userId: Meteor.userId(),
+      createdAt: new Date(),
+    });
+  }
+});
+```
+
+```
+// /imports/ui/AddSkillForm.jsx
+import React, { useState } from 'react';
+import { Meteor } from 'meteor/meteor';
+
+export const AddSkillForm = () => {
+  const [skill, setSkill] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    Meteor.call('skills.add', skill);
+    setSkill('');
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        value={skill}
+        onChange={(e) => setSkill(e.target.value)}
+        placeholder="Enter a skill"
+      />
+      <button type="submit">Add Skill</button>
+    </form>
+  );
+};
+```
+There are obvious issues with the above:
+- No input validation. Empty strings or invalid skill names can be added.
+- No user authentication check. Unauthenticated users can call the method.
+- No database error handling. If Mongo insert fails, the UI doesn’t know. This means that there is also no feedback to the user and they can’t tell if something went wrong.
+
+### How to handle Errors and edge cases
+```
+// /imports/api/skills/methods.js
+import { Meteor } from 'meteor/meteor';
+import { check } from 'meteor/check';
+import { SkillsCollection } from '/imports/db/SkillsCollection';
+
+Meteor.methods({
+  'skills.add'(skillName) {
+
+    // GUARD CLAUSE: THE USER MUST BE LOGGED IN
+    if (!this.userId) {
+      throw new Meteor.Error('Not authorized', 'You must be logged in to add skills.');
+    }
+
+    // GUARD CLAUSE: CHECK THE INPUT
+    check(skillName, String);
+
+    if (skillName.trim().length === 0) {
+      throw new Meteor.Error('Invalid skill', 'Skill name cannot be empty.');
+    }
+
+    // EDGE CASE 1: DUPLICATES (ALTHOUGH, MONGODB ALREADY HANDLES UNIQUE ENTRIES)
+    const existingSkill = SkillsCollection.findOne({ userId: this.userId, name: skillName.trim() });
+    if (existingSkill) {
+      throw new Meteor.Error('Duplicate skill', 'This skill already exists.');
+    }
+
+    try {
+      return SkillsCollection.insert({
+        name: skillName.trim(),
+        userId: this.userId,
+        createdAt: new Date(),
+      });
+    } catch (err) {
+      throw new Meteor.Error('Database error', err.message);
+    }
+  },
+});
+```
+
+Now, how to display the success/error states to the user or on the front end.
+```
+// /imports/ui/AddSkillForm.jsx
+
+import React, { useState } from 'react';
+import { Meteor } from 'meteor/meteor';
+
+export const AddSkillForm = () => {
+  const [skill, setSkill] = useState('');
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (skill.trim().length === 0) {
+      setError('Please enter a valid skill name.');
+      return;
+    }
+    Meteor.call('skills.add', skill, (err) => {
+      if (err) {
+        setError(err.reason || 'An unexpected error occurred.');
+        setSuccess('');
+      } else {
+        setSuccess('Skill added successfully!');
+        setError('');
+        setSkill('');
+      }
+    });
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        value={skill}
+        onChange={(e) => setSkill(e.target.value)}
+        placeholder="Enter a skill please"
+      />
+      <button type="submit">Add a Skill to your SkillTree</button>
+
+      {error && <p>{error}</p>}
+      {success && <p>{success}</p>}
+
+    </form>
+  );
+};
+```
+
+This lets us get a better idea of where to locate the an error if it pops up.
+- It prevents unauthorised actions if the userId is invalid at any point
+- Improves the user experience and integrity by giving clear feedback on the success and failure of the application state
+- The use of guard clauses makes the code cleaner and reliable.
 
