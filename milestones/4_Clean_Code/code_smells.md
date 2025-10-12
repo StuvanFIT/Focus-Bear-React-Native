@@ -3,6 +3,7 @@
 ### Magic Numbers
 
 #### Before
+
 ```
 // Directly using "magic" values in code
 
@@ -12,6 +13,7 @@ if (user.role === "100") {
 ```
 
 #### After
+
 Instead, we should be using descriptive constants
 
 ```
@@ -21,12 +23,14 @@ if (user.role === ROLE_ADMIN) {
   console.log("Admin privileges granted");
 }
 ```
+
 > [! NOTE]
-> Normally, this is not GOOD PRACTICE to check for admin privledges. This is just an example 
+> Normally, this is not GOOD PRACTICE to check for admin privledges. This is just an example
 
 ### Very Long Functions
 
 #### Before
+
 ```
 async function handleUserLogin(username, password) {
   const user = await Meteor.users.findOneAsync({ username });
@@ -48,6 +52,7 @@ async function handleUserLogin(username, password) {
 ```
 
 #### After
+
 ```
 async function findUser(username) {
   return await Meteor.users.findOneAsync({ username });
@@ -73,6 +78,7 @@ async function handleUserLogin(username, password) {
 ### Duplicate Code
 
 #### Before
+
 ```
 if (!userId) {
   throw new Error("Not authorized");
@@ -92,7 +98,9 @@ Meteor.users.update(userId, { $set: { lastActive: user2.lastActive } });
 ```
 
 #### After
+
 We can write it as a reusable function. Having reusable functions improves maintainability and reduces bugs.
+
 ```
 async function updateLastActive(userId) {
   if (!userId) throw new Error("Not authorized");
@@ -106,6 +114,7 @@ updateLastActive(userId);
 ### Large Classes. Or known as God Classes
 
 #### Before
+
 ```
 class UserManager {
   createUser() {}
@@ -117,7 +126,9 @@ class UserManager {
   banUser() {}
 }
 ```
+
 #### After
+
 Each class now has a single responsibility, following the Single Responsibility Principle (SRP).
 
 ```
@@ -138,8 +149,8 @@ class ActivityService {
 
 ### Deeply Nested Conditionals
 
-
 #### Before
+
 ```
 if (user) {
   if (user.profile) {
@@ -151,7 +162,9 @@ if (user) {
 ```
 
 #### After
+
 Makes the code more readable, reducing the need of indentations.
+
 ```
 if (!user || !user.profile || !user.profile.isVerified) return;
 
@@ -161,6 +174,7 @@ console.log("Welcome verified user!");
 ### Unused/Commented out code
 
 #### Before
+
 ```
 // const helperMethod = () => console.log("hello world")
 // const abcd1 = 901;
@@ -169,6 +183,7 @@ console.log("New function");
 ```
 
 #### After
+
 ```
 console.log("New function");
 ```
@@ -176,11 +191,13 @@ console.log("New function");
 ### Inconsitent Naming
 
 #### Before
+
 ```
 const x = Meteor.users.find().fetch();
 ```
 
 ### After
+
 ```
 const users = Meteor.users.find().fetch();
 ```
@@ -188,6 +205,7 @@ const users = Meteor.users.find().fetch();
 Additionally, any literal inconsitent naming such as `const users` and `const Users` can also be confusing for developers reviewing your work.
 
 ### How did refactoring improve readability and maintainability?
+
 I believe there is always a need of refactoring in any codebase, with the purpose of improving the overall codebase effiency and structure. As a result, it improved code readability and maintainability. This includes practice such as:
 
 - Splitting large functions into smaller, single responsibility
@@ -197,6 +215,7 @@ I believe there is always a need of refactoring in any codebase, with the purpos
 - Using meaningful and consistent names for variables and functions.
 
 ### How can avoiding code smells make future debugging easier?
+
 - Any errors that pop up are easier to locate since each function or module, has a single purpose or role
 - Future developers who work on the codebase can easily understand the codebase.
 - Changes in one area are less likely to break others.

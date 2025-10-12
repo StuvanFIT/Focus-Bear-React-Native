@@ -1,9 +1,11 @@
 # Steven's Timetable
 
 ## Context
+
 As a software engineering student at Monash University, I have a hectic schedule balancing academic commitments with other responsibilities including part-time work and passion projects. To ensure successful participation in the Focus Bear internship while maintaining my existing commitments, I have developed this comprehensive time management plan.
 
 This detailed timetable addresses:
+
 - Specific working days and time slots
 - Exact duration of work sessions
 - Designated work locations
@@ -27,16 +29,20 @@ Note that the following may change a bit but it is always good to have a plan be
 ## Work Environment Setup
 
 ### Location Specifications (Based in Melbourne, Victoria)
+
 - **Primary Location:** Dedicated home office space
 - **Timezone:** Australian Eastern Standard Time (AEST/AEDT)
 
 ### Communication Availability
+
 - **Response Time:** Within 2-4 hours during work days. Almost always responsive (Yes, I am chronically online and stay up pretty late sometimes)
 
 ## Schedule Considerations
 
 ### Flexibility Factors
+
 - May require temporary schedule adjustments
 - Potential for reduced hours during critical academic periods if necessary
 - Potential for increased hours during the break
+
 ---
