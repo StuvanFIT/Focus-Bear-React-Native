@@ -1,5 +1,7 @@
 # Continuous Integration & Continuous Deployment (CI/CD)
 
+![alt text](../Images/ci_cd.png)
+
 CI/CD is a software development practice that aims to automate the process of integrating code changes, testing and deploying applications, to increase the development efficiency.
 
 - Continuous Integration: Developers frequently merge their code into a shared repository. Automated builds and tests run to detect issues early.
