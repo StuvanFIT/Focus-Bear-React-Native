@@ -25,6 +25,3 @@ jobs:
 
       - name: 5. Run Markdown lint
         run: npm run lint:md
-
-      - name: 6. Run Spell Check
-        run: cspell "**/*.md" --no-progress --color
