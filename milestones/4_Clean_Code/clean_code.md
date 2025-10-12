@@ -1,11 +1,9 @@
-
----
-
 # Clean Code Principles
 
-**"Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.- John Woods"**
+> "Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live."  
+> — John Woods
 
-### Simplicity – Keep code as simple as possible
+## Simplicity – Keep code as simple as possible
 
 I like to use the acronym KISS -> Keep It Simple Stupid.
 
@@ -81,7 +79,7 @@ This is a poor example of variable naming. If a new developer in the future were
 
 ---
 
-# Code Formatting and Style Guide
+## Code Formatting and Style Guide
 
 ### Why is Code Formatting important?
 
@@ -106,7 +104,7 @@ After using ESLINT +PRETTIER to format the code, the code became readable and ma
 
 ---
 
-# Naming Variables & Functions
+## Naming Variables & Functions
 
 To effectively name variables and functions, developers need to use descriptive, consistent and follow established or widely used conventions like the camelCase or snake_case. I would prefer to have peers who follow an established guideline as it makes it easier for us to adjust to and increases the likelihood of developers having consistent naming.
 
@@ -120,6 +118,7 @@ To me, a good variable or Function name should be:
     Instead of
 
     ```
+    # Clean Code Principles
     const x = 22
 
     x doesnt tell me anything. x could mean anything here (i.e. the number of dogs I have etc)
@@ -187,7 +186,7 @@ The code is now easier to follow, without the need of comments. Thus, this impro
 
 ---
 
-# Writing Small and Focused Functions
+## Writing Small and Focused Functions
 
 ### Why breaking down functions are beneficial?
 
@@ -248,9 +247,9 @@ Each function performs a specific task and are used to calcualte the total price
 
 ---
 
-# Avoiding Code Duplication
+## Avoiding Code Duplication
 
-### What is the DRY (DONT REPEAT YOURSELF) Principle?
+## What is the DRY (DONT REPEAT YOURSELF) Principle?
 
 DRY is a software development principle that aims to encourage software developers to avoid duplicating code in a system.
 

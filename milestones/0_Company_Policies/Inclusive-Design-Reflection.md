@@ -5,6 +5,7 @@
 This can result in challenges such as overstimulating designs, unclear instructions, inaccessible layouts, lack of flexibility, exclusion from communication
 
 ### What ethical considerations are important when designing or working with neurodivergent individuals? (Hint: Avoid overwhelming UX, respect sensory needs, ensure clear communication.)
+
 <https://www.autismspeaks.org/sensory-issues#:~:text=Sensory%20overload%20happens%20when%20an,decision%20making%20and%20information%20processing>.
 
 Neurodivergent individuals like those with ADHD, autism or sensory processing differences can often find overwhelming or noisy UX difficult due to :

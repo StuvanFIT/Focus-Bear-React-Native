@@ -120,6 +120,7 @@ A user manual is basically a short guide that explains to other co-workers on ho
 ### What categories are helpful to include? (e.g., communication style, work habits, feedback preferences)
 
 In the user-manual, it is helpful to include the following:
+
 * Communication style
 * Working habits
 * Collaboration and team work
