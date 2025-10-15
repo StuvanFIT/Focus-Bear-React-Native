@@ -112,7 +112,7 @@ Components are essential in building efficient and maintainable interfaces.
 
 Components allow you to break down complex UIs you want to render into smaller, independent and self-contained units. By isolating parts of the UI into components, changes made to one component are less likely to affect other parts of the application. This significantly improves maintainability, as developers can focus on specific components without worrying about unintended side effects across the entire codebase.
 
-These components can also be reusued across the project and having components in different/separate files allows us to maintain the codebase. 
+These components can also be reusued across the project and having components in different/separate files allows us to maintain the codebase.
 
 ## What happens if we modify state directly instead of using setState?
 When you modify the `useState` directly instead of using `setState`, it can lead to several issues:
