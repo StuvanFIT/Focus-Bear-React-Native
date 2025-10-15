@@ -103,7 +103,7 @@ function App() {
 export default App;
 ```
 
-## Any challenged in setting up React?
+## Any challenges in setting up React?
 
 No challenges were faced. However, a key thing to note when installing is that the normal CREATE-REACT-APP (CRA) is outdated.According to the tailwind installation documentation, `create-react-app` does not support custom PostCSS configuration and does integrate well with PostCSS environment like `postcss-import`. Thus, they highly recommended using VITE, NEXT.JS or PARCEL instead of Create-React-App as it provides a better developer experience but with more control on how to use TailwindCSS
 
