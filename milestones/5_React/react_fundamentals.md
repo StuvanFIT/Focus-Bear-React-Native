@@ -124,3 +124,12 @@ When you modify the `useState` directly instead of using `setState`, it can lead
 - React uses a process called reconciliation to efficiently update the DOM. This process involves comparing the previous state with the new state to determine what needs to be re-rendered. If you directly mutate state, this comparison can become unreliable
 
 TLDR: Never mutate the this.state as React will not know if you have mutated that state!
+
+## Common Issues When Working with Lists in React
+
+There are some key things to note when working with lists in react:
+
+- Unique keys. Each item rendered using `.map()` must have a unique key prop. Without using unique keys, react cannot efficiently track which items have changed and may lead to ui issues.
+- Directly mutating the array (e.g toDoList.push(newItem)) won’t trigger a re-render and won't update the UI
+- Creating very large lists. Rendering large lists can slow performance and there needs to be methods in place to encourage optimisation
+- Conditional Rendering should be used. For example, if there are no list items in the list, there should be a fallback UI to handle the display of no list items (i.e. No tasks have been added).
