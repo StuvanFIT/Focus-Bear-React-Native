@@ -112,4 +112,15 @@ Components are essential in building efficient and maintainable interfaces.
 
 Components allow you to break down complex UIs you want to render into smaller, independent and self-contained units. By isolating parts of the UI into components, changes made to one component are less likely to affect other parts of the application. This significantly improves maintainability, as developers can focus on specific components without worrying about unintended side effects across the entire codebase.
 
-These components can also be reusued across the project and having components in different/separate files allows us to maintain the codebase.
+These components can also be reusued across the project and having components in different/separate files allows us to maintain the codebase. 
+
+## What happens if we modify state directly instead of using setState?
+When you modify the `useState` directly instead of using `setState`, it can lead to several issues:
+
+- No Re-rendering: : React relies on setState or the state setter to detect changes in state and trigger a re-render of the component. If you directly the useState variable, React will not be aware of the change and will not re-render the component, leading to an outdated UI that does not reflect the updated data.
+
+- It can lead to large debugging sessions as directly modifying the use state variables disrupts the react cycle.
+
+- React uses a process called reconciliation to efficiently update the DOM. This process involves comparing the previous state with the new state to determine what needs to be re-rendered. If you directly mutate state, this comparison can become unreliable
+
+TLDR: Never mutate the this.state as React will not know if you have mutated that state!
