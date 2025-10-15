@@ -106,3 +106,10 @@ export default App;
 ## Any challenged in setting up React?
 
 No challenges were faced. However, a key thing to note when installing is that the normal CREATE-REACT-APP (CRA) is outdated.According to the tailwind installation documentation, `create-react-app` does not support custom PostCSS configuration and does integrate well with PostCSS environment like `postcss-import`. Thus, they highly recommended using VITE, NEXT.JS or PARCEL instead of Create-React-App as it provides a better developer experience but with more control on how to use TailwindCSS
+
+## Why are components important in React?
+Components are essential in building efficient and maintainable interfaces.
+
+Components allow you to break down complex UIs you want to render into smaller, independent and self-contained units. By isolating parts of the UI into components, changes made to one component are less likely to affect other parts of the application. This significantly improves maintainability, as developers can focus on specific components without worrying about unintended side effects across the entire codebase.
+
+These components can also be reusued across the project and having components in different/separate files allows us to maintain the codebase.
