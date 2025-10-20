@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import AppLayout from "../layouts/AppLayout";
-import Home from "../pages/Home";
-import Profile from "../pages/Profile";
+import AppLayout from "./ui/layouts/AppLayout";
+import Home from "./ui/pages/Home";
+import Profile from "./ui/pages/Profile";
 
 function App() {
 
