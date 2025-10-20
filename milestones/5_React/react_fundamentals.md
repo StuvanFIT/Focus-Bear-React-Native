@@ -133,3 +133,33 @@ There are some key things to note when working with lists in react:
 - Directly mutating the array (e.g toDoList.push(newItem)) won’t trigger a re-render and won't update the UI
 - Creating very large lists. Rendering large lists can slow performance and there needs to be methods in place to encourage optimisation
 - Conditional Rendering should be used. For example, if there are no list items in the list, there should be a fallback UI to handle the display of no list items (i.e. No tasks have been added).
+
+## What are advantages of Client-Side Routing?
+
+In standard server-side routing (Website), every time you click on a link button, the browser will send a GET request to the server and in response, the server will proivde the HTML page and all the CSS, Javascript, images and other assets it has just received.
+
+On the other hand, in client-side routing, when you click on a link button, the Router (i.e. React router or another library) will intercept that navigation and re-renders the page or parts of the page that it determines that it needs to. So the URL updates without a FULL PAGE RELOAD, and will just render a new component on the CLIENT SIDE
+
+Advantages of Client Side Routing:
+
+- No full-page reloads. React just swaps out components
+- Smoother UX experience and navigation feels intuitive
+- You can have components such as navigation bars, footers or side bars stay persistent
+- You can load route-specific components only when needed
+
+Disadvantages of Client Side Routing:
+
+- The first load cost: the whole JS bundle must load before navigation feels fast. For example, if I send you a link to <www.focusbear.com>, your browser has to download the HTML, CSS, JS. There are tons of different sections of the website that need to fetch or talk to the database to get data and these calls did not start until the app was loaded onto your browser. A more efficient way is to start loading those calls when you press on the link vis SSR.
+
+Modern solution will use both client and server side. We do:
+
+- server-side rendering based on the URL
+- get data starting to load by making database calls
+- hydrate the client with data once it's ready
+- Once the app is fully loaded, client routing takes over, then only swapping out small amounts of the page as you navigate
+
+TLDR
+
+1. Server Render: Server renders HTML per URL
+2. Hydration: makes the HTML interactive
+3. Client side routing: Navigation handled by client like we talked above
