@@ -17,11 +17,6 @@ function TestingUseEffect() {
     }, [])
 
     useEffect(() => {
-        setCount(count + 1); // causes another render each time
-    });
-
-
-    useEffect(() => {
 
         if (!shouldFetch) return;
 
@@ -43,7 +38,7 @@ function TestingUseEffect() {
 
         // Cleanup function
         return () => {
-            console.log("🧹 Cleaning up fetch (aborting request)");
+            console.log("Cleaning up fetch");
             controller.abort();
         };
 
