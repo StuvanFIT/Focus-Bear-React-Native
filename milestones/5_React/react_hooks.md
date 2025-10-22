@@ -174,7 +174,6 @@ So effectively, it’s the same as:
 const memoizedValue = computeExpensiveValue(a, b);
 ```
 
-
 Example of using useMemo
 
 ```
