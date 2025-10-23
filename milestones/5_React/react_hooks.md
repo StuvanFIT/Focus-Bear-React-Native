@@ -255,3 +255,125 @@ If the dependencies haven’t changed, React reuses the previous result instead 
 ### What happens if you remove useMemo from your implementation?
 
 If we remove useMemo from the above example, then the `computeSum` will run every rerender, even though the dependencies havent changed. So this would lower the performance of the application.
+
+## useCallBack
+
+[useCallBack docs](https://react.dev/reference/react/useCallback)
+
+useCallback is a React Hook that lets you cache a function definition between re-renders. It does this by returning a memoised version of the function, keeping the same function reference between re-renders unless one of its dependencies change.
+
+### What problem does useCallback solve?
+
+Normally in React, functions are recreated every time a component re-renders.
+When you pass a function as a prop to a child component, this causes the child to re-render even if nothing actually changed because the function reference is new.
+
+useCallback prevents unnecessary re-renders of child components by ensuring the same function reference is passed between renders. It’s especially useful when:
+
+- A child component is wrapped with `memo`.
+- A function is passed down as a prop and could trigger re-render loops.
+
+Example: not using `useCallBack`
+
+```
+import React, { useState, memo } from 'react';
+
+//Child component that logs when it re-renders
+const ChildButton = memo(({ onClick }) => {
+  console.log('CHILD COMPONENT IS RENDERED');
+  return <button onClick={onClick}>Increment</button>;
+});
+
+const TestingUseCallBack = () => {
+  const [count, setCount] = useState(0);
+  const [theme, setTheme] = useState('light');
+
+  //This function is re-created every time the parent re-renders.
+  const handleIncrement = () => {
+    setCount((prev) => prev + 1);
+  };
+
+  console.log('PARENT RENDERED');
+
+  return (
+    <div className="p-6">
+      <h2>Count: {count}</h2>
+      <ChildButton onClick={handleIncrement} />
+
+      <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
+        Toggle Theme ({theme})
+      </button>
+    </div>
+  );
+};
+
+export default TestingUseCallBack;
+```
+
+In this example, we can toggle the theme button b/w light and dark mode. When you click on Toggle Theme, only the theme state
+changes.
+
+However, the PARENT COMPONENT re-renders. This leads to:
+
+1. A new instance of handleIncrement
+2. The child (ChildButton) receives a new prop reference (onClick = {handleIncrement})
+3. Even though nothing about the child’s output changed, React re-renders it because its prop reference changed.
+
+Note: we also need `memo` wrapping around the child component props. `memo` is a higher order component that wraps another component (in this case, its the child button). It tells React that it should only re-render the child component if the props
+change. So if the parent re-renders but the props to the child hasnt changed, it will skip re-rendering.
+
+So even if we use `useCallBack` with no `memo`, the child component will still render. React always re-renders children of a component that re-renders, unless you explicitly prevent it.
+
+TLDR: Because React by default always re-renders all children of a parent that re-renders
+
+Example: Using `useCallBack`
+
+```
+import React, { useState, memo, useCallBack} from 'react';
+
+//Child component that logs when it re-renders
+const ChildButton = memo(({ onClick }) => {
+  console.log('CHILD COMPONENT IS RENDERED');
+  return <button onClick={onClick}>Increment</button>;
+});
+
+const TestingUseCallBack = () => {
+  const [count, setCount] = useState(0);
+  const [theme, setTheme] = useState('light');
+
+  //This function is re-created every time the parent re-renders.
+  const handleIncrement = useCallback(() => {
+    setCount((prev) => prev + 1);
+  }, []);
+
+  console.log('PARENT RENDERED');
+
+  return (
+    <div className="p-6">
+      <h2>Count: {count}</h2>
+      <ChildButton onClick={handleIncrement} />
+
+      <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
+        Toggle Theme ({theme})
+      </button>
+    </div>
+  );
+};
+
+export default TestingUseCallBack;
+```
+
+So this time, you will only see the "PARENT RENDERED" console message. The child no longer re-renders, because the handleIncrement function reference stays the same.
+
+### How does useCallback work differently from useMemo?
+
+useCallback returns a MEMOISED FUNCTION and is used when you want to prevent re-rendering of a function by caching the function reference.
+
+useMemo returns a MEMOISED VALUE and is more useful in applications where you want to cache an expensive computation result.
+
+TLDR: useCallback memoises FUNCTIONS and useMEMO memoises VALUES.
+
+### When would useCallback not be useful?
+
+- If the function isn’t passed to a child or doesn’t cause re-renders. It would be unnecessary.
+- Overusing it can make code harder to read without improving performance.
+- Adds unnecessary complexity if the application is small

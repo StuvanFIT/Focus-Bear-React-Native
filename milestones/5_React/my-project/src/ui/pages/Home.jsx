@@ -4,6 +4,7 @@ import Counter from '../components/Counter.jsx'
 import InputList from '../components/InputList.jsx'
 import TestingUseEffect from "../components/TestingUseEffect.jsx";
 import TestingUseMemo from "../components/TestingUseMemo.jsx";
+import TestingUseCallBack from "../components/TestingUseCallBack.jsx";
 
 function Home() {
 
@@ -14,6 +15,7 @@ function Home() {
             <InputList/>
             <TestingUseEffect/>
             <TestingUseMemo/>
+            <TestingUseCallBack/>
         </div>
     )
 }
