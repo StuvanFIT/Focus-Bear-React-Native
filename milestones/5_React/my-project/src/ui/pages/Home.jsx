@@ -5,6 +5,7 @@ import InputList from '../components/InputList.jsx'
 import TestingUseEffect from "../components/TestingUseEffect.jsx";
 import TestingUseMemo from "../components/TestingUseMemo.jsx";
 import TestingUseCallBack from "../components/TestingUseCallBack.jsx";
+import AxiosComponent from "../components/AxiosComponent.jsx";
 
 function Home() {
 
@@ -16,6 +17,7 @@ function Home() {
             <TestingUseEffect/>
             <TestingUseMemo/>
             <TestingUseCallBack/>
+            <AxiosComponent/>
         </div>
     )
 }
