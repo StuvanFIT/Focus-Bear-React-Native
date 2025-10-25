@@ -1,16 +1,17 @@
 import React, {useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { increment, decrement, reset } from "../../redux/counterSlice";
+import { increment, decrement, reset, selectCounterValue } from "../../../redux/counterSlice";
+import CounterMessage from "./CounterMessage";
 
 function Counter() {
 
-
-
-    const count = useSelector((state) => state.counter.value);
+    const count = useSelector(selectCounterValue);
     const dispatch = useDispatch(); //react hook that sends redux messages and lets redux know what happened
 
+
+
     return (
-        <div className="min-h-screen flex flex-col justify-center items-center text-gray-800 p-6">
+        <div className="min-h-screen flex flex-col space-y-8 justify-center items-center text-gray-800 p-6">
             <div className="bg-orange-50 rounded-2xl shadow-lg p-10 max-w-2xl text-center">
                 <h1 className="text-4xl md:text-5xl font-extrabold mb-6 text-orange-600">
                     Introducing the Focus Bear Counter
@@ -35,10 +36,9 @@ function Counter() {
                     </button>
 
                 </div>
-
-
-
-
+            </div>
+            <div className="bg-orange-50 rounded-2xl shadow-lg p-10 max-w-2xl text-center">
+                <CounterMessage/>
             </div>
         </div>
     )

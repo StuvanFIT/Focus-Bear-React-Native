@@ -1,7 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
-
 const counterSlice = createSlice({
     name: "counter",
     initialState: {
@@ -18,11 +16,15 @@ const counterSlice = createSlice({
             state.value = 0;
         },
     },
-})
+});
+
+/*
+
+*/
+
+export const selectCounterValue = (state) => state.counter.value;
 
 export const {increment, decrement, reset} = counterSlice.actions;
-
-
 /*
 NEEDED FOR CONNECTING THE SLICE TO THE STORE
 

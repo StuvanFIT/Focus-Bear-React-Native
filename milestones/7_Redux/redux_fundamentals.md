@@ -102,3 +102,25 @@ Developers should use Redux instead of useState when:
 3. If your application becomes complex, then using useState in multiple components can become hard to manage. Redux scales better and enforces a consistent structure.
 
 So TLDR: Use `useState` for simple, **local component states** like form inputs, toggles, or temporary UI states when no other components need access to that state. Use **Redux** when your app state is shared, global, or needs strong structure and traceability
+
+## Something to note
+
+Redux passes the `state` automatically to the reducers. It is under the hood.
+
+useSelector calls the selector automatically every time Redux state changes. It passes the entire store state into the selector function:
+
+```
+export const selectCounterValue = (state) => state.counter.value;
+```
+
+This function expects the entire store state object as its argument, and simply returns the part of it you care about (state.counter.value)
+
+## What are the benefits of using selectors instead of directly accessing state?
+
+Using selectors provide many benefits and moslty improvement of code structure, more organised and maintainable in the future.
+
+1. Increase code reusability. The same selector can be reused across multiple components to access consistent data.
+
+2. Increase code readability. Selectors make it clear what part of the state a component depends on, improving code clarity.
+
+3. Updating only in one place. If the state structure changes later, you only update the selector and not every component. This results in easier bug fixing and refactoring sessions.
