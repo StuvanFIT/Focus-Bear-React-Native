@@ -1,13 +1,13 @@
 import React, {useState} from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { increment, decrement, reset } from "../../redux/counterSlice";
 
 function Counter() {
 
-    const [counter, setCounter] = useState(0)
 
-    const handleCounterClick = () => {
-        setCounter(counter + 1)
-    }
 
+    const count = useSelector((state) => state.counter.value);
+    const dispatch = useDispatch(); //react hook that sends redux messages and lets redux know what happened
 
     return (
         <div className="min-h-screen flex flex-col justify-center items-center text-gray-800 p-6">
@@ -16,12 +16,28 @@ function Counter() {
                     Introducing the Focus Bear Counter
                 </h1>
                 <p className='text-2xl md:text-xl font-extrabold mb-6 text-orange-600'>
-                    Spam this counter as much as you can...
+                    Increment, Decrement or Reset this counter using Redux global state management...
                 </p>
 
-                <button onClick={handleCounterClick} className="cursor-pointer hover:bg-amber-600 transition border border-lg border-amber-800 rounded-lg shadow-lg p-6">
-                    I have been clicked {counter} times!!!
-                </button>
+                <h2 className="text-5xl font-bold">
+                    {count}
+                </h2>
+
+                <div className="flex flex-row items-center justify-center gap-2 mt-8">
+                    <button onClick={() => dispatch(increment())} className="cursor-pointer hover:bg-amber-600 transition border border-lg border-amber-800 rounded-lg shadow-lg p-6">
+                        Increment
+                    </button>
+                    <button onClick={() => dispatch(decrement())} className="cursor-pointer hover:bg-amber-600 transition border border-lg border-amber-800 rounded-lg shadow-lg p-6">
+                        Decrement
+                    </button>
+                    <button onClick={() => dispatch(reset())} className="cursor-pointer hover:bg-amber-600 transition border border-lg border-amber-800 rounded-lg shadow-lg p-6">
+                        Reset
+                    </button>
+
+                </div>
+
+
+
 
             </div>
         </div>
