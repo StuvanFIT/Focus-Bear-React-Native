@@ -83,6 +83,9 @@ import { Button } from 'react-native-paper';
 
 ## React Native: Handling screen size responsiveness
 
+[How to make our react native app responsive](https://www.youtube.com/watch?v=GnhbZbPb6uo)
+
+
 > REACT NATIVE DOES NOT USE CSS MEDIA QUERIES. INSTEAD, IT PROVIDES UTILITIES OR THIRD PARTY HELPERS
 
 `Dimensions API`
