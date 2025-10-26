@@ -120,6 +120,10 @@ Based on my research, the use of third party helpers are essential. Unlike web d
 
 - `react-native-size-matters` or `react-native-responsive-screen`
 
+Links below:
+[react-native-size-matters docs](https://www.npmjs.com/package/react-native-size-matters)
+[react-native-responsive-screen docs](https://www.npmjs.com/package/react-native-responsive-screen)
+
 Some custom ones from others:
 
 - `react-native-responsive-sizes`
