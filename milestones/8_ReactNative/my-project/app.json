@@ -1,5 +1,6 @@
 {
   "expo": {
+    "scheme": "8_ReactNative",
     "name": "8_ReactNative",
     "slug": "8_ReactNative",
     "version": "1.0.0",
@@ -24,9 +25,6 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    },
-    "plugins": [
-      "expo-router"
-    ]
+    }
   }
 }
