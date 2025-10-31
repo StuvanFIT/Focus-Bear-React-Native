@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View, Image} from "react-native";
+import { Link } from "expo-router";
 
 const Home = () => {
 
@@ -12,6 +13,9 @@ const Home = () => {
                 style={styles.image}
                 source={{ uri: "https://picsum.photos/seed/picsum/200/300" }}
             />
+
+            <Link href="/about" >About Page</Link>
+            <Link href="/contact" >Contact Page</Link>
         </View>
     )
 }
