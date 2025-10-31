@@ -29,6 +29,46 @@ FIX: Use optimised image sizes, caching (`react-native-fast-image`), or lazy loa
 
 - Achieving a truly native look and feel on both iOS and Android can be challenging due to differing design guidelines and component behaviors.
 
+## How React Native Handles Memory and Garbage Collection
+
+>NOTE: REACT NATIVE ISNT PURELY JAVASCRIPT. IT IS HALF JAVASCRIPT AND HALF NATIVE (ANDROID /IOS)
+>So, the app’s data and UI exist in two separate memory environments, which must communicate with each other.
+
+### How it works
+React Native’s memory management is similar to web-based React, but involves both JavaScript and native memory spaces.
+
+JS HEAP: This is where THE React logic and data live like components, states, variables. Managed by JS engine
+NATIVE MEMORY SPACE: This is where UI components, images, text, videos, and native modules (like the camera, file system, sensors, etc.) live. It’s managed by the operating system (iOS or Android).
+
+BRIDGE: “middleman” that lets JavaScript and native code talk to each other.
+Since JS and native run on different threads and memory spaces, they can’t directly share objects or pointers. So React Native serialiSes data (turns it into text/JSON format) before sending it across.
+
+JS HEAP THREAD <----BRIDGE----> NATIVE HEAP THREAD
+
+```
+NativeModules.ToastModule.show("Hello");
+
+1. "Hello" is serialiSed into a message.
+2. Sent through the bridge to the native thread.
+3. The native module displays a toast message using platform code.
+```
+
+TLDR:
+
+- JS objects and variables live in the JavaScript heap (managed by the JS engine).
+- Native views, images, and modules live in native memory (managed by the OS).
+- The bridge connects both and it is passing serialised data between JS and native threads.
+
+## WHY IT MATTERS?
+
+>Because the bridge has limited bandwidth and data must be serialiSed/deserialiSed, sending large or frequent messages can >slow your app down.
+
+### Garbage Collection (GC)
+
+- The JS engine periodically runs garbage collection to free unused memory.
+- GC can cause small performance hiccups if too frequent (e.g., large object creation, leaks).
+- Memory leaks happen when references to unused objects are still retained (e.g., uncleaned listeners or timers).
+
 ## How do useMemo and useCallback improve performance?
 
 useMemo and useCallback are React Hooks that improve performance by leveraging the concept of memoisation.
