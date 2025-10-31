@@ -16,6 +16,7 @@ const Home = () => {
 
             <Link href="/about" >About Page</Link>
             <Link href="/contact" >Contact Page</Link>
+            <Link href="/animatedView" >Animated Page</Link>
         </View>
     )
 }
