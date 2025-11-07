@@ -60,3 +60,19 @@ fireEvent.press(subtractButton);
 - Also for async test cases, updating states may require waitFor()
 
 - Some components behave differently on iOS vs Android; tests may pass on one platform but fail on another if they rely on platform-specific props.
+
+## Why is it important to mock API calls in tests?
+
+It is always important to mock API calls in tests for your application:
+
+- It makes sure your components work in isolation. Tests should focus on your component’s logic/UI, not on the behavior of external services. Mocking ensures your tests are isolated from the network.
+- Real API calls can be slow, causing your tests to run longer. Mocks return instant responses as you can just return Promises and results directly
+- Network issues or server downtime can cause tests to fail. Mocking ensures consistent test results everytime you ctrl + s
+
+## What are some common pitfalls when testing asynchronous code?
+
+- Forgetting to use `await` and `waitFor`. Most of the time, the api call or async update does not complete before the assertion statement and causes the test to fail or produce false results.
+- Not handling errors. If the async function throws, your test can fail unexpectedly. Always handle promise rejections in tests.
+- Forgetting to use fireevent for user simulation/actions taht trigger async operations
+- State reset between your tests. Async code may mutate shared state. Ensure each test starts with a fresh render.
+- setTimeout or setInterval can make tests slow and flaky. Use Jest fake timers for predictable behavior.
