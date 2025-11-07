@@ -17,6 +17,8 @@ describe('<Fetch/>', () => {
 
         const {getByText} = render(<Fetch/>);
 
+        //waitFor repeatedly runs the callback until the expectation passes or timeout error.
+        //So it keeps runnning until the text has been rendered.
         await waitFor(() => {
             expect(getByText("Steven")).toBeTruthy();
         
