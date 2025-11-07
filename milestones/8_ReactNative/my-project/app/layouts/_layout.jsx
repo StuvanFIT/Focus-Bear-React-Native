@@ -15,6 +15,7 @@ const RootLayout = () => {
             <Stack.Screen name="animatedView" options={{title: 'Animated'}} />
             <Stack.Screen name="fetch" options={{title: 'Fetch'}} />
             <Stack.Screen name="addition" options={{title: 'Addition'}} />
+            <Stack.Screen name="userInteraction" options={{title: 'Testing User Interaction'}} />
         </Stack>
     )
 
