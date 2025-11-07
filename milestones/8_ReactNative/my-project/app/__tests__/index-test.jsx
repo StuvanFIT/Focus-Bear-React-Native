@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react-native';
-import Home from '../pages/index';
+import Home from '../index';
 
 
 describe('<Home />', () => {

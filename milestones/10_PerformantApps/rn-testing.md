@@ -1,6 +1,5 @@
 # Writing Unit and Integration Tests for React Native
 
-
 [EXPO: JEST DOCS](https://docs.expo.dev/develop/unit-testing/)
 
 ## Software Quality Testing
