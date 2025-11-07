@@ -1,6 +1,7 @@
 import React, {useRef} from 'react';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 import {Animated, Text, View, StyleSheet, Button} from 'react-native';
+import { Link } from 'expo-router';
 
 const AnimatedView = () => {
   // fadeAnim will be used as the value for opacity. Initial Value: 0
@@ -35,6 +36,8 @@ const AnimatedView = () => {
               opacity: fadeAnim,
             },
           ]}>
+          <Link href="/" style={styles.title}>GO BACK TO HOME</Link>
+
           <Text style={styles.fadingText}>Fading View!</Text>
         </Animated.View>
         <View style={styles.buttonRow}>

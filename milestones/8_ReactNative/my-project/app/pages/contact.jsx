@@ -1,16 +1,19 @@
-import { Link } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
+import { Link } from "expo-router";
 
-const About = () => {
+const Contact = () => {
 
     return (
+
         <View style={styles.card}>
-            <Text style={styles.title}>About Page</Text>
+             <Link href="/" style={styles.title}>GO BACK TO HOME</Link>
+
+            <Text style={styles.title}>Contact Page</Text>
         </View>
     )
 }
 
-export default About;
+export default Contact;
 
 const styles = StyleSheet.create({
     card: {
