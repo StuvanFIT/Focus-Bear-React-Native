@@ -22,6 +22,7 @@ const Home = () => {
             <Link href="/pages/contact" >Contact Page</Link>
             <Link href="/components/animatedView" >Animated Page</Link>
             <Link href="/pages/fetch" >Fetch Page</Link>
+            <Link href="/pages/addition" >Sum A n B Page</Link>
            
         </View>
     )

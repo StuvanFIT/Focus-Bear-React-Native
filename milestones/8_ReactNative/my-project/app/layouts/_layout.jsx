@@ -14,6 +14,7 @@ const RootLayout = () => {
             <Stack.Screen name="contact" options={{title: 'Contact'}} />
             <Stack.Screen name="animatedView" options={{title: 'Animated'}} />
             <Stack.Screen name="fetch" options={{title: 'Fetch'}} />
+            <Stack.Screen name="addition" options={{title: 'Addition'}} />
         </Stack>
     )
 
