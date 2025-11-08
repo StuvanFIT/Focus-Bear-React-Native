@@ -13,7 +13,6 @@ const UserInteraction = () => {
     return (
 
         <View style={styles.card}>
-             <Link href="/" style={styles.title}>GO BACK TO HOME</Link>
 
             <Text style={styles.title}>UserInteraction Page</Text>
 

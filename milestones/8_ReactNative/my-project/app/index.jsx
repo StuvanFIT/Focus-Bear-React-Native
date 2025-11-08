@@ -24,6 +24,7 @@ const Home = () => {
             <Link href="/pages/fetch" >Fetch Page</Link>
             <Link href="/pages/addition" >Sum A n B Page</Link>
             <Link href="/pages/userInteraction" >Testing User Interaction</Link>
+            <Link href="/pages/counter" >Counter Page</Link>
            
         </View>
     )

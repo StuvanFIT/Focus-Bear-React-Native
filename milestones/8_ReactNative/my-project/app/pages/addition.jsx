@@ -22,7 +22,7 @@ const Addition = () => {
 
     return (
         <View style={styles.container}>
-             <Link href="/" style={styles.title}>GO BACK TO HOME</Link>
+
 
              <Text style={styles.title}>Sum Two Numbers</Text>
 

@@ -6,7 +6,6 @@ const Contact = () => {
     return (
 
         <View style={styles.card}>
-             <Link href="/" style={styles.title}>GO BACK TO HOME</Link>
 
             <Text style={styles.title}>Contact Page</Text>
         </View>

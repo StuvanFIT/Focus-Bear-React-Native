@@ -22,7 +22,7 @@ const Fetch = () => {
 
     return (
         <View style={styles.card}>
-            <Link href="/" style={styles.title}>GO BACK TO HOME</Link>
+        
 
             {loading ? (
                 <View style={styles.card}>
