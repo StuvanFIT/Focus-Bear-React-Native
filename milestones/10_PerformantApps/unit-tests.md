@@ -76,3 +76,19 @@ It is always important to mock API calls in tests for your application:
 - Forgetting to use fireevent for user simulation/actions taht trigger async operations
 - State reset between your tests. Async code may mutate shared state. Ensure each test starts with a fresh render.
 - setTimeout or setInterval can make tests slow and flaky. Use Jest fake timers for predictable behavior.
+
+## What was the most challenging part of testing Redux?
+
+The most challenging part of testing redux was trying to fix the following issue:
+
+```
+SyntaxError: Cannot use import statement outside a module" when I try to test with jest
+```
+
+The error occurs because Jest doesn't know how to handle ES modules from react-redux. The key change is adding the transformIgnorePatterns to your Jest configuration. This tells Jest to transform (compile) the ES modules from react-redux and @reduxjs/toolkit.
+
+## How do Redux tests differ from React component tests?
+
+Redux tests focus on pure logic and verifying that reducers and actions update state correctly without UI.
+React component tests focus on UI behavior, ensuring components render correctly and respond to user interactions.
+Redux tests are isolated and don’t require rendering components, while React tests usually use React Testing Library to simulate user behavior.

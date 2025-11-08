@@ -1,14 +1,11 @@
-import { Link } from "expo-router";
 import { StyleSheet, Text, TextInput, View, Button } from "react-native";
 import {useSelector, useDispatch} from "react-redux";
 import { increment as incrementAction, decrement as decrementAction, updateIncrement as updateIncrementAction} from "../redux/reducers/counter";
 
 const Counter = () => {
 
-    const {count, increment} = useSelector(state => ({
-        count: state.counter.value,
-        increment: state.counter.increment
-    }))
+    const count = useSelector(state => state.counter.value);
+    const increment = useSelector(state => state.counter.increment);
 
 
     const dispatch = useDispatch(); //react hook that sends redux messages and lets redux know what happened
@@ -38,7 +35,7 @@ const Counter = () => {
                 />
             </View>
 
-            <Text style={styles.title}>{count}</Text>
+            <Text style={styles.title} testID="count-value">{count}</Text>
             
         </View>
     )
