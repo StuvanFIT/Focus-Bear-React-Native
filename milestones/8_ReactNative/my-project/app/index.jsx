@@ -1,11 +1,15 @@
 import { StyleSheet, Text, View, Image} from "react-native";
 import { Link } from "expo-router";
 
+export const CustomText = ({ children }) => <Text>{children}</Text>;
+
 const Home = () => {
 
     return (
         <View style={styles.card}>
+            <CustomText>Welcome!</CustomText>
             <Text style={styles.title}>Hello Focus Bear User!</Text>
+
 
             <Text style={styles.description}>This is the card component</Text>
 
@@ -14,9 +18,14 @@ const Home = () => {
                 source={{ uri: "https://picsum.photos/seed/picsum/200/300" }}
             />
 
-            <Link href="/about" >About Page</Link>
-            <Link href="/contact" >Contact Page</Link>
-            <Link href="/animatedView" >Animated Page</Link>
+            <Link href="/pages/about" >About Page</Link>
+            <Link href="/pages/contact" >Contact Page</Link>
+            <Link href="/components/animatedView" >Animated Page</Link>
+            <Link href="/pages/fetch" >Fetch Page</Link>
+            <Link href="/pages/addition" >Sum A n B Page</Link>
+            <Link href="/pages/userInteraction" >Testing User Interaction</Link>
+            <Link href="/pages/counter" >Counter Page</Link>
+           
         </View>
     )
 }

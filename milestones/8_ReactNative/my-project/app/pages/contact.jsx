@@ -1,9 +1,12 @@
 import { StyleSheet, Text, View } from "react-native";
+import { Link } from "expo-router";
 
 const Contact = () => {
 
     return (
+
         <View style={styles.card}>
+
             <Text style={styles.title}>Contact Page</Text>
         </View>
     )
