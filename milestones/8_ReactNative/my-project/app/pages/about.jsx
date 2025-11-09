@@ -3,6 +3,8 @@ import { StyleSheet, Text, View } from "react-native";
 
 const About = () => {
 
+    console.log("LOLOEJRJUBR")
+
     return (
         <View style={styles.card}>
             <Text style={styles.title}>About Page</Text>

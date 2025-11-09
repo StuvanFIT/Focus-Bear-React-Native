@@ -7,7 +7,7 @@ const RootLayout = () => {
 
     return (
         <Provider store={store}>
-            //You can props to the global stack. But you can override this by adding them specifically to each Stack.screen props
+            
             <Stack screenOptions={{
                 headerStyle: { backgroundColor: "#ddd"},
                 headerTintColor: '#333',
