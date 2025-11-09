@@ -15,11 +15,6 @@ const Fetch = () => {
         .finally(() => setLoading(false))
     },[]) //run once on mount
 
-    /*
-    
-    */
-
-
     return (
         <View style={styles.card}>
         
