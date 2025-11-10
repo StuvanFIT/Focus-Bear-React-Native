@@ -223,6 +223,10 @@ The conflict happened because two different branches modified the same section o
 
 - Resolving merge conflics requires great attention to detail and the importance of clear commit messages which make it easier to understand what each branch is doing when conflicts arise.
 
+Below is an example of a merge conflict:
+
+
+
 ---
 
 # Staging VS Committing
