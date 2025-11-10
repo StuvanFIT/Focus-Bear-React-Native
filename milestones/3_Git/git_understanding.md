@@ -223,9 +223,39 @@ The conflict happened because two different branches modified the same section o
 
 - Resolving merge conflics requires great attention to detail and the importance of clear commit messages which make it easier to understand what each branch is doing when conflicts arise.
 
-Below is an example of a merge conflict:
+Below is an example of a simple merge conflict:
 
+- Branches involved: `fixFocusBearQAFeedback` and `another-dev-feature-branch`
 
+In one feature branch, developer A edited a file called README.md and psuhed the changes to the remote repo
+
+```
+I AM TESTING A FEATURE BRACH
+```
+
+Lets say developer B that is working on the same file but on a different branch, edits the same README.md file on the same exact line and pushes his/her changes into the remote repo
+
+```
+Hello World
+```
+
+Then, developer B wants to merge developers A feature branch into feature branch B. THere will be a merge conflict:
+
+![alt text](../Images/merge-conflict.png)
+
+To fix, this you need to decide whether to keep your CURRENT CHANGES, ACCEPT THE INCOMING CHANGES FROM FEATURE BRANCH B or accept BOTH CHANGES.
+
+In this case, I want to accept both changes.
+
+![alt text](../Images/resolution-merge-conflict.png)
+
+I found it interesting how Git marks conflicts with clear delimiters (<<<<<<<, =======, >>>>>>>). Initially, it was confusing which section belonged to which branch, but using the GitHub Desktop conflict resolver made it much clearer. This helped me understand how Git tracks and merges changes line-by-line.
+
+I also used the following command to view the entire git history and where the merge conflict occurred.
+
+```
+git log --oneline
+```
 
 ---
 
