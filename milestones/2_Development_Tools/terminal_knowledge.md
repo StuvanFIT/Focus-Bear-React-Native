@@ -31,7 +31,7 @@ Get-Process -Id <PID> | Stop-Process
 
 This has saved me many times when React development servers were stuck and localhost:3000 was already in use.
 
-### Example of using `kill -9 PID`
+### Example of using `kill -9 PID` in WSL
 
 ![alt text](../Images/port3000Issue1.png)
 
@@ -50,6 +50,17 @@ This has saved me many times when React development servers were stuck and local
 > Process running on port 3000 successfully
 
 A personal example: I was working on a react project in WSL (note: was working on WSL as we were using devbox to speed up the environment, so essentially its like docker), I ran into an issue where npm start would fail because port 3000 was already in use by another process from a previous session. Using the PowerShell commands above, I quickly found the process ID and stopped it, allowing me to restart the development server without rebooting my machine. This saved me time and avoided frustration during a tight development session.
+
+### Example of using `Get-Process -Id PID | Stop-Process` in powershell
+
+![alt text](../Images/powerShellPort3000Issue.png)
+
+Here, we see that port 4000 is being already occupied thus, we find all processes using port 4000 and stop the processes via their PID reference
+
+```
+netstat -ano | findstr :3000
+Get-Process -Id <PID> | Stop-Process
+```
 
 Another one is echo helloworld...
 
