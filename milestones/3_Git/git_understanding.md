@@ -257,6 +257,10 @@ I also used the following command to view the entire git history and where the m
 git log --oneline
 ```
 
+commit hash: 516fe97 is where the merge resolution occurred
+
+![alt text](../Images/commit-log-merge-conflict.png)
+
 ---
 
 # Staging VS Committing
