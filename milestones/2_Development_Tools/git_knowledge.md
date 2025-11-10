@@ -15,3 +15,14 @@ git rerere: Stands for "reuse recorded resolution"
 <https://stackoverflow.com/questions/49500943/what-is-git-rerere-and-how-does-it-work>
 
 - this feature helps Git remember how you resolved a conflict and automatically reapply that resolution if the same conflict arises again in the future.TLDR: AUTOMATICALLY HANDLES MERGES
+
+### Personal hands on experience
+
+My version of GIT:
+
+![alt text](../Images/gitVersion.png)
+
+The version of git as of October 2025 is `version 2.44.0.windows.1`.
+
+Example of commit and push from my terminal:
+
