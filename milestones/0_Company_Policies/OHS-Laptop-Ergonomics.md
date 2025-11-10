@@ -42,3 +42,11 @@ Or if I'm really into it, I can place a sticky note above my PC/desk
 ### Document at least one workspace change or habit adjustment you made
 
 Placed a sticky note above my PC to STRAIGHTEN MY BACK AND CORRECT MY POSTURE!
+
+### Example of a good workspace that applies ergonomic principles
+
+![alt text](ergonomics.png)
+
+This is an example of the workspace that applies ergonomic habits.
+
+Embracing corporate ergonomics brings numerous advantages to all people. By prioritising the design of workspaces and equipment to fit the needs of individuals and productivity.

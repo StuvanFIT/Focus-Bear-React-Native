@@ -50,6 +50,7 @@ During onboarding, specifically in the react native redux milestone, I had troub
 ```
 getState() does not exist
 ```
+
 I didn’t remember what `getState` referred to, and even using **Ctrl + F** in my codebase didn’t help me locate it.
 
 AI Prompt:
