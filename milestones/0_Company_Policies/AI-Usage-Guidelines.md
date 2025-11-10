@@ -42,3 +42,55 @@ During my focus bear internship, I will only use AI only with anonymised example
 
 My Focus Bear Practice:
 "I will use AI to enhance and further my skills in my software engineering journey and will always review, test and fact-check AI generated content/outputs before implementing them in production code to ensure the Focus Bear application maintains high quality code."
+
+### Example of using AI to improve my onboarding tasks
+
+During onboarding, specifically in the react native redux milestone, I had trouble setting up my Redux store in the react native application. It continuosly displayed the following error message:
+
+```
+getState() does not exist
+```
+I didn’t remember what `getState` referred to, and even using **Ctrl + F** in my codebase didn’t help me locate it.
+
+AI Prompt:
+> "Why does my React Native Redux setup show the error 'getState() does not exist'? Can you show me how to correctly configure a Redux store?"
+
+AI Suggestion:
+ChatGPT explained that the `getState()` function is automatically provided by the Redux store created with `configureStore()` (from `@reduxjs/toolkit`). The error meant my app was not properly wrapped in the `<Provider>` component or the store was incorrectly imported.  
+It provided the following example setup:
+
+```
+import { configureStore } from '@reduxjs/toolkit'
+import counterReducer from './counterSlice'
+
+export const store = configureStore({
+  reducer: {
+    counter: counterReducer,
+  },
+})
+```
+
+First, it made sure to check if my store.js file was configured.
+
+```
+<Provider store={store}>...  </Provider>
+```
+
+Then, it checked if the entry jsx file was wrapped in a Provider component.
+
+```
+
+export default function App() {
+  return (
+    <Provider store={store}>
+      <Counter />
+    </Provider>
+  )
+}
+```
+
+I compared this with my existing code and realised I had forgotten to import the Provider from react-redux and wrap my root component. After adding it, the error disappeared.
+
+To confirm the accuracy, I checked the official Redux Toolkit documentation and verified that getState indeed comes from the store instance returned by configureStore(). So, it is still important to know the hidden details of configureStore even though its not really taught to us.
+
+Using AI helped me quickly pinpoint a small but critical configuration mistake. The explanation about getState deepened my understanding of how the Redux store works. I learned that while AI can guide me toward a fix, validating and testing is essential before trusting the actual output.
