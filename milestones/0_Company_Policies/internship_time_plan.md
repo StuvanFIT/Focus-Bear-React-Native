@@ -45,4 +45,10 @@ Note that the following may change a bit but it is always good to have a plan be
 - Potential for reduced hours during critical academic periods if necessary
 - Potential for increased hours during the break
 
+### The start of my focus bear session journey
+
+![alt text](../Images/focusbearAccount.png)
+
+![alt text](../Images/examplefocusbearsession.png)
+
 ---

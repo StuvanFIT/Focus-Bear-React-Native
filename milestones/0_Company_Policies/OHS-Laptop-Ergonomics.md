@@ -45,7 +45,7 @@ Placed a sticky note above my PC to STRAIGHTEN MY BACK AND CORRECT MY POSTURE!
 
 ### Example of a good workspace that applies ergonomic principles
 
-![alt text](ergonomics.png)
+![alt text](../Images/ergonomics.png)
 
 This is an example of the workspace that applies ergonomic habits.
 
