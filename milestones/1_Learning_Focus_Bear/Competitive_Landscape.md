@@ -21,6 +21,12 @@ If I was a user, I would definitely select Focus Bear over the competitors if:
 
 A key feature that I've noticed in Tiimo is its visual planning feature. This makes sense as Tiimo mainly focuses on having enhanced planning to increase productivity. Tiimo introduced an AI empowered task breakdown, allowing for effortless planning with AI. This turns the users ideas into small structured tasks allowing it to be digested easily. The use of AI here is definitely a main advantage in using Tiimo over Focus Bear as Focus Bear doesnt seem to have any built in AI features.
 
+When I downloaded and tested the free tier of Tiimo, the introduction to it definitely felt more inviting and intuitive. I liked the interative views in the introduction to the app and how it let me start my journey. It felt like a warm welcoming to the app.
+
+![alt text](../Images/Tiimo1.png)
+
+So something Focus Bear is include more engagement in the beginning where users sign up. Messages like "Congrats,...." or something to motivate the user to continue to sign up, definitely creates a first good impression of the app.
+
 ### Based on your research, what’s one improvement you think Focus Bear could make?
 
 Introducing AI-powered task breakdown.
