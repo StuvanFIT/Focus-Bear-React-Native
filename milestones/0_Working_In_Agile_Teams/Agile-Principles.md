@@ -12,6 +12,13 @@ TLDR: the key difference is that Agile allows teams to adapt to changes quickly 
 
 ![alt text](/milestones/Images/agilePrinciples.png)
 
+The four key values are:
+
+1. Individuals and interactions over processes and too as it reminds me that open communication and collaboration matter more than using the “perfect” tool.  
+2. Working software over comprehensive documentation. It means the idea that emphasises building something that actually works, not just planning endlessly.  
+3. Customer collaboration over contract negotiation, highlights that understanding user needs is more valuable than rigid agreements.  
+4. Responding to change over following a plan – reinforces the importance of flexibility, especially in startup companies liek focus bear where priorities shift often.  
+
 ### What are the differences between Scrum and Kanban, and when is each used?
 
 Scrum
@@ -51,3 +58,9 @@ and Scrum is better for teams needing structure and incremental delivery
 "Responding to change over following a plan"
 
 As I am an intern at Focus Bear, my priorities can change very quickly and are volatile and I have to be flexible and adaptable in these kind of environments in order to help me stay on track or stay valuable to the team
+
+### Personal experience Using Agile
+
+In one of my university software engineering projects (FIT3170 – Software Engineering Practice), our team of  used the Scrum framework. I was the Scrum Master (release train engineer), responsible for running stand-ups, tracking progress, and ensuring we met our sprint goals. During one sprint, our tutor’s feedback required us to completely redesign a feature mid-development. Initially, it felt frustrating to pivot, but through short iterations and daily check-ins, we quickly reprioritised tasks and adapted the backlog. This was communicated with our product managers at the time and they updated for the team to let everyone know of the changes 
+
+This experience showed me the real strength of Agile an wiresponding to change and collaborating closely with others. It taught me that flexibility and open communication are far more valuable than rigidly following a plan.
