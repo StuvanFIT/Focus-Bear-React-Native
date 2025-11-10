@@ -28,3 +28,11 @@ The multiple cursor shortcuts (Alt + Click, Ctrl + D & Ctrl + Shift + L) will be
 ### How can keyboard shortcuts improve productivity?
 
 Keyboard shortcuts reduce the need to constantly switch between the mouse and keyboard. This speeds up navigation, editing, and debugging by keeping me in the flow of coding. Over time, the small time savings add up, which overall contribute to higher producutivity.
+
+### LINK TO PULL REQUEST
+
+[Link to pull request](https://github.com/StuvanFIT/Focus-Bear-React-Native/pull/67)
+
+In this pull request, I documented my top VS Code shortcuts that improved my coding efficiency and workflow. Writing this helped me identify which commands I naturally rely on (like multiple cursors and terminal shortcuts) and which new ones I can start using more consistently to save time during development.
+
+For example, in my recent project coding session, everytime i wanted to open up the terminal again, instead of clicking Terminal -> New Terminal, I would instead do CTRL +SHIFT + ` which makes my workflow feel more smooth and quicker.
