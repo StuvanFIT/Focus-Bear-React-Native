@@ -8,6 +8,14 @@
 Example of me initiating a Pull Request with a reviewer/peer:
 <https://github.com/Monash-FIT3170/2025W2-Skilltree/pull/150>
 
+![alt text](initiatingPR.png)
+
+This is me initiating the PR
+
+![alt text](initiatingPR2.png)
+
+Fixed any issues my peers have brought up
+
 ### What are Pull Requests (PR)?
 
 A Git Pull Request (PR) is a proposal to merge set of changes from one branch into another branch. In these Pull Requests, collaborators can review and discuss the proposed changes before they are fully integrated into the destination branch.  
@@ -28,6 +36,8 @@ Having a Pull Request template. This allows for Pull Requests to be standardised
 - Checklist for code quaity (i.e. Have I included comments in complex sections?)
 
 ### What did you learn from reviewing an open-source PR?
+
+![alt text](reviewingOpenSourcePR.png)
 
 Almost every good PR ive seen contain comments and active/productive discussions on how to improve on the code or potential issues in the PR. Even if the change is really small, it would include comments on what to improve on in the future or dependencies.
 
