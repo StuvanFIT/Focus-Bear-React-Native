@@ -21,3 +21,40 @@ So, I believe that the most optimal workflow is to leverage the best of both wor
 - Explaining new programming concepts when learning
 - Assisting with debugging when clear error context is given
 - Provide and draft a demonstration of how a feature should look like
+
+### AI Implementation Example
+
+## Code Generation (gpt)
+
+> PROMPT: Write a simple React counter component with increment and decrement buttons using functional components and hooks.
+
+Generated Output
+
+![alt text](gptExample.png)
+
+I ran this in my React test project (npm run dev) and it worked correctly. GPT’s version was concise and functional. I later asked Claude to refactor it with TypeScript types and better styling, which improved maintainability.
+
+## Debugging Session (claude ai)
+
+Context: I encountered a React error
+
+> "Cross-Origin-Opener-Policy policy would block the window.closed call error while using google auth"
+> PROMPT: "I'm getting an error where Cross-Origin-Opener-Policy would block the window.closed call when using google OAuth. What's wrong? "
+
+Claude AI explains why the error occurs in the first place:
+
+![alt text](claude-Why-Error-Occurs.png)
+
+Then, Claude AI begins to explain the possibe solutions to the issue:
+
+![alt text](claude-Solutions-To-Error.png)
+
+Implementing the above solution removed the error completely and no other warnings popped up.
+
+## Learning a new concept
+
+Concept: Redux Toolkit Slices (milestone 7)
+
+>PROMPT: "Explain how Redux Toolkit slices work and why they’re better than traditional Redux reducers."
+
+GPT explained that slices combine actions and reducers into a single structure, reducing boilerplate and improving code organization. It provided an example using createSlice and showed how it automatically generates action creators. I used this to refactor one of my existing Redux files, resulting in cleaner and more maintainable state management.

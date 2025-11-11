@@ -13,6 +13,11 @@ I have already used React Developer Tools and definitely has assisted me in my r
 
 Additionally, another underrated feature is that you have the ability to render the component to the console, where u can view the details of current states/hooks.
 
+
+
+
+
+
 2.Redux Developer Tools
 I have not used this tool and is my first time implementing this in my workflow. I decided to install this extension as i am currently not using any external bugging tools. Since a lot of the times I've been using print debugging, I think its actually more efficient to use Redux Dev tools to assist in subsequent development/actions. For example, if you were to increase the counter via a button click, you can view the state of the application and its variable values BEFORE the button was clicked and AFTER the button was clicked, which helps in trying to identify bugs.
 
