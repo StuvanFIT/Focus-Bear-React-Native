@@ -44,7 +44,7 @@ const Addition = () => {
              <Button title="Calculate Sum" onPress={handleSum} />
 
             {result !== null && (
-                <Text style={styles.result}>Result: {result}</Text>
+                <Text style={styles.result}>This is the current result: {result}</Text>
             )}
                         
             
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#ec9797ff',
     padding: 20,
   },
   title: {
