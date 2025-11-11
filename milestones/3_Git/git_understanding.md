@@ -75,7 +75,7 @@ For example: feat: allow system to send email to customer when email is sent
 
 2. If you need to roll back a specific change, unclear messages make it much harder to find the right commit to revert.
 
-### Examples of a different commit messages
+### Examples of different commit messages
 
 Vague Commit Message:
 
