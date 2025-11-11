@@ -77,6 +77,8 @@ For example: feat: allow system to send email to customer when email is sent
 
 ### Examples of different commit messages
 
+![alt text](differentCommitMessages.png)
+
 Vague Commit Message:
 
 ```
