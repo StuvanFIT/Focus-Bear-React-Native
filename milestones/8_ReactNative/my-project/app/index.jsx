@@ -3,6 +3,7 @@ import { Link } from "expo-router";
 
 export const CustomText = ({ children }) => <Text>{children}</Text>;
 
+
 const Home = () => {
 
     return (

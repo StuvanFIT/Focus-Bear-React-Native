@@ -93,12 +93,10 @@ Overly detailed Message:
 A Well-structured Message:
 
 ```
-feat(home): add recent activities list with pull-to-refresh
+feat (Home):  add Home screen with navigation links
 
-- Implemented cards on HomeScreen to show uncompleted activities
-- Integrated RefreshControl for pull-to-refresh support
-- Updated theme colors for list items
-- Adjusted navigation stack to include HomeScreen
+- Implemented home screen card that styles the home page
+- Include navigational links using <Link/> to other pages
 
 ```
 
