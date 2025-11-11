@@ -30,7 +30,7 @@ So, I believe that the most optimal workflow is to leverage the best of both wor
 
 Generated Output
 
-![alt text](gptExample.png)
+![alt text](../Images/gptExample.png)
 
 I ran this in my React test project (npm run dev) and it worked correctly. GPT’s version was concise and functional. I later asked Claude to refactor it with TypeScript types and better styling, which improved maintainability.
 
@@ -43,11 +43,11 @@ Context: I encountered a React error
 
 Claude AI explains why the error occurs in the first place:
 
-![alt text](claude-Why-Error-Occurs.png)
+![alt text](../Images/claude-Why-Error-Occurs.png)
 
 Then, Claude AI begins to explain the possibe solutions to the issue:
 
-![alt text](claude-Solutions-To-Error.png)
+![alt text](../Images/claude-Solutions-To-Error.png)
 
 Implementing the above solution removed the error completely and no other warnings popped up.
 

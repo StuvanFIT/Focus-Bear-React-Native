@@ -8,11 +8,11 @@
 Example of me initiating a Pull Request with a reviewer/peer:
 <https://github.com/Monash-FIT3170/2025W2-Skilltree/pull/150>
 
-![alt text](initiatingPR.png)
+![alt text](../Images/initiatingPR.png)
 
 This is me initiating the PR
 
-![alt text](initiatingPR2.png)
+![alt text](../Images/initiatingPR2.png)
 
 Fixed any issues my peers have brought up
 
@@ -37,7 +37,7 @@ Having a Pull Request template. This allows for Pull Requests to be standardised
 
 ### What did you learn from reviewing an open-source PR?
 
-![alt text](reviewingOpenSourcePR.png)
+![alt text](../Images/reviewingOpenSourcePR.png)
 
 Almost every good PR ive seen contain comments and active/productive discussions on how to improve on the code or potential issues in the PR. Even if the change is really small, it would include comments on what to improve on in the future or dependencies.
 
@@ -77,7 +77,7 @@ For example: feat: allow system to send email to customer when email is sent
 
 ### Examples of different commit messages
 
-![alt text](differentCommitMessages.png)
+![alt text](../Images/differentCommitMessages.png)
 
 Vague Commit Message:
 
@@ -290,6 +290,10 @@ Note: you can easily remove/add products to the staging (shopping cart) but it i
 There are many benefits in having 2 steps.
 
 If makes your commits clearer and concise. You may have multiple changes to multiple files. These changes could be related or unrelated to each other. Thus, you can choose which files to add to the staging area and make sure that all changes related to each other are in one commit. So, you may have multiple changes in your working directory, but not all are ready to be committed and staging lets you pick and choose.
+
+### Example of staging vs commiting
+
+![alt text](../Images/stagingAndCommit.png)
 
 ### When would you want to stage changes without committing?
 
