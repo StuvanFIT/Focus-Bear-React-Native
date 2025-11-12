@@ -410,6 +410,8 @@ In the refactored version, we:
 
 ---
 
+COMMIT LINK: [refactored and ovecomplicated code commit link](https://github.com/StuvanFIT/Focus-Bear-React-Native/commit/e1b97c6afcc3c85ee55e980da99200ad81898d9c)
+
 # Commenting & Documentation
 
 In large project teams, I definitely appreciate documentation as helpful comments and documentation improve code maintainability without creating any extra noise, technical debt or adding any unneeded cognitive load.
