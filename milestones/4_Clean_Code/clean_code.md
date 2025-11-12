@@ -205,7 +205,11 @@ The below example shows a long complex function being refactored into a smaller 
 Martinez, Y. (2023). "The Power of small and focused functions in software development". DEV. [Online].Reviewed on 08/10/2025.
 <https://dev.to/yabetancourt/the-power-of-small-and-focused-functions-in-software-development-37k1>
 
+
 ### Before Refactoring (Long and Complex Function)
+
+FILE CHANGED: `4_Clean_Code/orderUtils.java`
+BEFORE REFACTORING COMMIT LINK: [Committing long complex function](https://github.com/StuvanFIT/Focus-Bear-React-Native/commit/bcddcba4cb5138aa4d0ccbb1b5c51cb4bff69fd9)
 
 ```
 public double calculateOrder(double[] prices, double discountRate, double taxRate) {
@@ -226,6 +230,9 @@ public double calculateOrder(double[] prices, double discountRate, double taxRat
 Here, `calulcateTotalPrice` has 3 responsibilities: calculating the price of each item, applying discounts to the total price, and calculating the tax on the total price.
 
 ### After Refactoring (Short and Simpler Functions)
+
+FILE CHANGED: `4_Clean_Code/orderUtils.java`
+REFACTORING COMMIT LINK: [Refactoring into short and simpler function](https://github.com/StuvanFIT/Focus-Bear-React-Native/commit/9511ffd58e4da0d49478133c284a38c53bcc16f4)
 
 ```
 public double calculateOrder(double[] prices, double discountRate, double taxRate) {
@@ -259,6 +266,9 @@ private void printSummary(double subtotal, double discounted, double total) {
 ```
 
 Each function performs a specific task and are used to calcualte the total price. The code is modularised and every function has a clear purpose and is much more readable.
+
+While refactoring this function, I realised how much easier it became to understand and modify.
+Originally, all logic was bundled into one method, which it made it difficult to test or extend (for example, adding different tax rates for places). After breaking it into smaller methods, I could test each part independently and immediately caught a rounding bug in the discount calculation. The structure now feels cleaner and easier to maintain in the future.
 
 ---
 
