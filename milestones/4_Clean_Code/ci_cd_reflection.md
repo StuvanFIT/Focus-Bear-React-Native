@@ -14,7 +14,17 @@ Automating style and lint checks (e.g., ESLint, Prettier, markdownlint) ensures 
 
 - Code Style Consistency as the team maintains a uniform code style across the team
 - Code Readability as it is well formatted
-- Prevent any small errors such as unused variables or missing imports.  
+- Prevent any small errors such as unused variables or missing imports.
+
+## Setting up markdown linting
+
+`.markdownlint-cli2.json` configuration. Note that I disabled some checks to align with my practices
+
+![alt text](image.png)
+
+Running the markdown linting check
+
+![alt text](image-1.png)
 
 ## What are some challenges with enforcing checks in CI/CD?
 
