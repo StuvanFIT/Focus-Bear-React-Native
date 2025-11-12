@@ -129,6 +129,12 @@ For example: git checkout main -- <file>
 **WHAT IT DOES**: This command restores a specific file from the main branch into your current branch. Does not have to be main branch it can be any git branch locally or remote.
 **WHEN TO USE**: If you’ve messed up a file locally and just want the version from the target branch, without touching your other changes.
 
+## Example of `checkout`
+
+![alt text](../Images/checkoutExample.png)`
+
+Here, I edited a read me file in a feature branch but decided that these changes were wrong and I wanted to revert back to the README file state in the main branch.
+
 ```
 git cherry-pick <commit>
 
@@ -137,6 +143,12 @@ git cherry-pick abcdefg
 
 **WHAT IT DOES**: Applies a specific commit from another branch into your current branch, without merging the whole branch.
 **WHEN TO USE**: If there’s a useful fix or feature in another branch that you want to pull in without merging all the other work from that branch. So, u are cherry picking which commites you want to merge without merging all the other commits. very useful for isolation testing with certain commits/bug fixing.
+
+## Example of `git cherry-pick`
+
+![alt text](../Images/cherryPickExample.png)
+
+Here, i added a read me file to the images directory. Then, committed the changes to the feature branch. I then decided that i wanted this readme file to be in the main branch without merging the entire feature branch.
 
 ```
 git log
@@ -150,12 +162,20 @@ git log --oneline --graph --decorate
 **WHAT IT DOES**: Shows the commit history the current repository
 **WHEN TO USE**: To review what’s been committed, who committed it, and when. Great for understanding project evolution and how it has changed.
 
+## Example of `git log`
+
+![alt text](../Images/gitLogExample.png)
+
 ```
 git blame <file>
 ```
 
 **WHAT IT DOES**: Shows which commit and which author last modified each line of a file.
 **WHEN TO USE**: To track down when/why a specific line of code was introduced or changed, and by whom
+
+## Example of `git blame`
+
+![alt text](../Images/gitBlameExample.png)
 
 ### What surprised you while testing these commands?
 
