@@ -347,6 +347,8 @@ With this change, it resulted in:
 - Just call with a new type argument
 - Concise and expressive
 
+
+COMMIT LINK FOR THE ABOVE EXAMPLES: [Duplicated and Refactored version commit link](https://github.com/StuvanFIT/Focus-Bear-React-Native/commit/4382a607536c63b8a5aba44df2f42c0d9f778dee)
 ---
 
 # Refactoring Code For simplicity
