@@ -114,6 +114,42 @@ Components allow you to break down complex UIs you want to render into smaller, 
 
 These components can also be reusued across the project and having components in different/separate files allows us to maintain the codebase.
 
+Example of `HelloWorld.jsx` component
+
+ [LINK TO `HelloWorld.jsx` component:](https://github.com/StuvanFIT/Focus-Bear-React-Native/blob/fix/FocusBearQAFeedback/milestones/5_React/my-project/src/ui/components/HelloWorld.jsx)
+
+```
+import React from 'react';
+
+function HelloWorld({name}) {
+
+    return (
+        <div className="min-h-screen flex flex-col justify-center items-center text-gray-800 p-6">
+            <div className="bg-orange-50 rounded-2xl shadow-lg p-10 max-w-2xl text-center">
+                <h1 className="text-4xl md:text-5xl font-extrabold mb-6 text-orange-600">
+                    Hello, Focus Bear!
+                </h1>
+                <p className='text-2xl md:text-xl font-extrabold mb-6 text-orange-600'>
+                    Hello, {name}!
+                </p>
+            </div>
+        </div>
+    )
+}
+
+export default HelloWorld;
+```
+
+![alt text](helloWorldProp.png)
+
+In this screen shot, I passed the name prop with the value "Steven Kaing" into the HelloWorld function
+
+```
+<HelloWorld name={"Steven Kaing"}>
+```
+
+It rendered: "Hello, Steven Kaing!"
+
 ## What happens if we modify state directly instead of using setState?
 When you modify the `useState` directly instead of using `setState`, it can lead to several issues:
 

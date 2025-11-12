@@ -205,7 +205,6 @@ The below example shows a long complex function being refactored into a smaller 
 Martinez, Y. (2023). "The Power of small and focused functions in software development". DEV. [Online].Reviewed on 08/10/2025.
 <https://dev.to/yabetancourt/the-power-of-small-and-focused-functions-in-software-development-37k1>
 
-
 ### Before Refactoring (Long and Complex Function)
 
 FILE CHANGED: `4_Clean_Code/orderUtils.java`
