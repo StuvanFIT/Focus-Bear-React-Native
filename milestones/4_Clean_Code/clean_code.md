@@ -260,6 +260,8 @@ DRY is a software development principle that aims to encourage software develope
 Below is an example of duplicated code and the refactored version
 <https://gist.githubusercontent.com/NyaGarcia/7f19fcd5211dc9b99fa1a957c9219f68/raw/f7d2f7b71393bc07d8731a087fd043d0f982d5fd/duplication.js>
 
+Files changes: `duplicatedCode.js` and `refactoredDuplicatedCode.js`
+
 ### Before Refactoring (lots of duplication)
 
 ```
@@ -303,6 +305,10 @@ function getGolangNews() {
 }
 ```
 
+Before refactoring:
+
+![alt text](../Images/duplicatedCode.png)
+
 If you inspect the code above, we noticed that all functions and methods are very similar, the only difference being the "type" of news being retrieved from allNews. Having 3 methods is pointless and we can combine this inot one reusable function that can be applied anywhere in the codebase provided they have a "type".
 If a change is neede in how you retrieve news, we would need to update logic or perform editing in three places.
 
@@ -326,6 +332,10 @@ const rustNews = getNewsByType("rust");
 const golangNews = getNewsByType("golang");
 ```
 
+Result:
+
+![alt text](../Images/refactoredDuplicatedCode.png)
+
 OR we can do this
 
 ```
@@ -347,8 +357,8 @@ With this change, it resulted in:
 - Just call with a new type argument
 - Concise and expressive
 
-
 COMMIT LINK FOR THE ABOVE EXAMPLES: [Duplicated and Refactored version commit link](https://github.com/StuvanFIT/Focus-Bear-React-Native/commit/4382a607536c63b8a5aba44df2f42c0d9f778dee)
+
 ---
 
 # Refactoring Code For simplicity
