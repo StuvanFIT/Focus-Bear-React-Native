@@ -20,25 +20,25 @@ Automating style and lint checks (e.g., ESLint, Prettier, markdownlint) ensures 
 
 [Markdown Lint YAML file](https://github.com/StuvanFIT/Focus-Bear-React-Native/blob/main/.github/workflows/markdown-check.yml)
 
-![alt text](markdownLinting5.png)
+![alt text](../Images/markdownLinting5.png)
 
-![alt text](markdownWorkflow.png)
+![alt text](../Images/markdownWorkflow.png)
 
 `.markdownlint-cli2.json` configuration. Note that I disabled some checks to align with my practices
 
-![alt text](markdownLinting1.png)
+![alt text](../Images/markdownLinting1.png)
 
 Running the markdown linting check:
 
-![alt text](markdownLinting2.png)
+![alt text](../Images/markdownLinting2.png)
 
 Setting automated markdown linting checks in pull requests:
 
 [LINK TO PULL REQUEST](https://github.com/StuvanFIT/Focus-Bear-React-Native/pull/90)
 
-![alt text](markdownLinting4.png)
+![alt text](../Images/markdownLinting4.png)
 
-![alt text](markdownLonting3.png)
+![alt text](../Images/markdownLonting3.png)
 
 ## Briefly describe any issues you faced when setting up the pipeline or git hooks, and how you resolved them
 

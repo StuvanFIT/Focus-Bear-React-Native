@@ -680,4 +680,18 @@ I didnt really come across any direct issues to do with the actual testing exper
 
 Additionally, I had to run `npm run test` every iteration which was tiring. Thus, i automated the process using the extension `Jest Explorer`.
 
+### Example Demonstration of Unit Testing
+
+[Link to Unit Testing Directory](https://github.com/StuvanFIT/Focus-Bear-React-Native/tree/main/Unit%20Testing)
+
+[Link to isUserLoggedIn Test scripts](https://github.com/StuvanFIT/Focus-Bear-React-Native/blob/main/Unit%20Testing/Jest/src/test/isUserLoggedIn.test.js)
+
+![alt text](../Images/unitTesting1.png)
+
+This is a screenshot of the test cases for `isUserLoggedIn`
+
+Outputs:
+
+![alt text](../Images/unitTesting2.png)
+
 ---
