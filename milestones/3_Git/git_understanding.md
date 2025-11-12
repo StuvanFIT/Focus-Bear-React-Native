@@ -188,6 +188,31 @@ git bisect bad/good                                 #the current commit in the b
 git bisect reset
 ```
 
+### Example of executing a git
+
+link to test repo: [test repo](https://github.com/StuvanFIT/Focus-Bear-React-Native)
+
+![alt text](../Images/gitBisect1.png)
+
+The underlined red is the commit that introduced the bug. But lets say we didnt know which commit was the bae one. We will try using git bisect to identify the commit that introudced the bug.
+
+I made 2 commits where the first commit was functional and the other commit was a bug
+
+`git bisect bad`. Marks the current state of the branch as not working (bad commit)
+
+>NOTE: I used git log --oneline to view commit history with hashes
+
+![alt text](../Images/gitBisect2.png)
+
+Then, mark another point as the good commit using `git bisect good 287dda3` as i knew that this commit hash was functional and did not contain the bug. Then, we go through all possible commits and mark them as either a bad commit or good commit.
+
+![alt text](../Images/gitBisect3.png)
+
+We found our bad commit. Do a git bisect rest afterwards.
+This confirmed that the bug was introduced in my second commit.
+
+Through this exercise, I learned how git bisect can be used to efficiently find when a regression was introduced — an incredibly useful tool for debugging large projects.
+
 ### When would you use it in a real-world debugging situation?
 
 - If there are a lot of files and commits, it will be tiresome to scan through all of them to find the bug.
