@@ -208,13 +208,19 @@ Martinez, Y. (2023). "The Power of small and focused functions in software devel
 ### Before Refactoring (Long and Complex Function)
 
 ```
-public double calculateTotalPrice() {
-  double totalPrice = 0.0;
-  // Calculate the price of each item
-  // Apply discounts to the total price
-  // Calculate tax on the total price
-  return totalPrice;
+public double calculateOrder(double[] prices, double discountRate, double taxRate) {
+    double subtotal = 0;
+    for (double price : prices) {
+        subtotal += price;
+    }
+    double discount = subtotal * discountRate;
+    double taxedTotal = (subtotal - discount) + ((subtotal - discount) * taxRate);
+    System.out.println("Subtotal: " + subtotal);
+    System.out.println("Discount: " + discount);
+    System.out.println("Taxed Total: " + taxedTotal);
+    return taxedTotal;
 }
+
 ```
 
 Here, `calulcateTotalPrice` has 3 responsibilities: calculating the price of each item, applying discounts to the total price, and calculating the tax on the total price.
@@ -222,25 +228,34 @@ Here, `calulcateTotalPrice` has 3 responsibilities: calculating the price of eac
 ### After Refactoring (Short and Simpler Functions)
 
 ```
-public double calculateTotalPrice() {
-  double totalPrice = 0.0;
-  totalPrice += calculateItemPrice();
-  totalPrice -= applyDiscounts();
-  totalPrice += calculateTax();
-  return totalPrice;
+public double calculateOrder(double[] prices, double discountRate, double taxRate) {
+    double subtotal = calculateSubtotal(prices);
+    double discounted = applyDiscount(subtotal, discountRate);
+    double total = applyTax(discounted, taxRate);
+    printSummary(subtotal, discounted, total);
+    return total;
 }
 
-public double calculateItemPrice() {
-  // Calculate the price of each item
+private double calculateSubtotal(double[] prices) {
+    double subtotal = 0;
+    for (double price : prices) subtotal += price;
+    return subtotal;
 }
 
-public double applyDiscounts() {
-  // Apply discounts to the total price
+private double applyDiscount(double subtotal, double discountRate) {
+    return subtotal - (subtotal * discountRate);
 }
 
-public double calculateTax() {
-  // Calculate tax on the total price
+private double applyTax(double amount, double taxRate) {
+    return amount + (amount * taxRate);
 }
+
+private void printSummary(double subtotal, double discounted, double total) {
+    System.out.println("Subtotal: " + subtotal);
+    System.out.println("After Discount: " + discounted);
+    System.out.println("Final Total: " + total);
+}
+
 ```
 
 Each function performs a specific task and are used to calcualte the total price. The code is modularised and every function has a clear purpose and is much more readable.
