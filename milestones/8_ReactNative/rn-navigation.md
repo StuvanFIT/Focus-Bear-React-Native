@@ -34,19 +34,19 @@ Navigation state (current route, params, etc.) is stored in React state and upda
 
 ## Example of Basic React Native Navigation
 
-![alt text](homePage.png)
+![alt text](../Images/homePage.png)
 
 This is the Home Page code
 
-![alt text](navigationCode_RN.png)
+![alt text](../Images/navigationCode_RN.png)
 
 This is the Home page (`index.jsx`) that contains the links to other screens or pages. This is a simple navigation stack and I click on the About Page link, I will be redirected to the ABout Page:
 
-![alt text](aboutPage.png)
+![alt text](../Images/aboutPage.png)
 
 The pages are stacked on top of each other:
 
-![alt text](layout_RN.png)
+![alt text](../Images/layout_RN.png)
 
 ## How would you implement deep linking in a React Native app?
 
@@ -75,15 +75,15 @@ For example:
 1. The user gets a notification about a specific task. "HEY DONT FORGET ABOUT YOUR TASKS/example123"
 2. When pressed on, the user is redirected to that task screen and jumps directly to it
 
-![alt text](deepLink1.png)
+![alt text](../Images/deepLink1.png)
 
-![alt text](deepLink2.png)
+![alt text](../Images/deepLink2.png)
 
 Here, we implemented a button that navigates to the counter page where the currentIncrement value is set to 75.
 
-![alt text](deepLink0.png)
+![alt text](../Images/deepLink0.png)
 
-![alt text](deepLink3.png)
+![alt text](../Images/deepLink3.png)
 
 ## Challenges setting up deep linking in expo + react native
 
@@ -121,4 +121,4 @@ TLDR and reccomnedation:
 
 >From the [docs](https://docs.expo.dev/linking/overview/), it says that if your project already has expo-router installed, they recommend using Expo Router since deep linking is automatically enabled for all of your app's screens.
 
-![alt text](deepLink4.png)
+![alt text](../Images/deepLink4.png)
