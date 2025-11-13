@@ -186,6 +186,8 @@ const styles = StyleSheet.create({
 });
 ```
 
+[LINK TO CODE](https://github.com/StuvanFIT/Focus-Bear-React-Native/blob/fix/FocusBearQAFeedback/milestones/8_ReactNative/my-project/app/index.jsx)
+
 Before double clicking:
 
 ![alt text](../Images/rn_gesture_animated0.png)
