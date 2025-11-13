@@ -26,6 +26,7 @@ const TestingUseCallBack = () => {
             </h2>
 
             <h2 className='font-bold'>Count: {count}</h2>
+            {/*When a function is passed as a prop to a child, this causes the child to re-render unnecessarily because the prop reference changes. */}
             <ChildButton onClick={handleIncrement}/>
 
 

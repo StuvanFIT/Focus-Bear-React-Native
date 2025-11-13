@@ -313,6 +313,32 @@ If we remove useMemo from the above example, then the `computeSum` will run ever
 
 useCallback is a React Hook that lets you cache a function definition between re-renders. It does this by returning a memoised version of the function, keeping the same function reference between re-renders unless one of its dependencies change.
 
+## Example of TestingUseCallBack
+
+[LINK TO GITHUB USECALLBACK COMPONENT](https://github.com/StuvanFIT/Focus-Bear-React-Native/blob/main/milestones/5_React/my-project/src/ui/components/TestingUseCallBack.jsx)
+
+![alt text](TestingUseCallBack.png)
+
+![alt text](withoutUseCallBack.png)
+
+Without useCallback:
+
+- Toggling the theme state caused both the parent and the child to re-render.
+- In the console, you can see ChildButton logging "CHILD COMPONENT IS RENDERED" on every parent re-render, even though the child’s output did not change.
+
+![alt text](withUseCallBack.png)
+
+With useCallback:
+
+- Wrapping handleIncrement with useCallback and memoiding ChildButton ensures the child does not re-render when the theme toggles.
+- Only the parent re-renders. The console confirms this with no new logs from the child.
+
+Reflection:
+
+When testing this component, I initially observed that toggling the theme caused unnecessary re-renders of the child, even though the button’s behavior and UI didn’t change. But after wrapping handleIncrement with a useCallBack and memoising the child button component, there was a clear improvement: no child re-renders and console logs messages were expected.
+
+THis shows that how `useCallback` combined with memo helps optimise performance in real scenarios, especially with expensive child components or large lists.
+
 ### What problem does useCallback solve?
 
 Normally in React, functions are recreated every time a component re-renders.
