@@ -1,5 +1,13 @@
 # When to Use Google, AI Tools, or Ask for Help?
 
+## Summary of the 25-30 minute conversation I had about the use of AI tools in coding
+
+After having a conversation with GPT, I gained different perspectives on usin ai in coding. I think that Ai tools are really helpful in understanding and learning new concepts, giving general documentation or simple debugging errors. They are like super personal assistants that are there to help you out and speed up development.
+
+However, there are some situations where AI is not reliable, especially with complex codebases that require high accuracy and critical code. One key insight that stood out to me was that “AI in coding is like a calculator for programmers, it helps with speed and convenience, but you still need to think critically and verify the output yourself.” This discussion helped me understand that AI works best as a supportive tool for learning and problem-solving, not a replacement for real understanding or human judgment
+
+So, I wouldnt use AI to blindly copy code as it can lead to future bugs or issues if you dont completely understand what you are pasting in. Overusing ai can honeslty degrade your problem solving skills which are core assets in what makes a good software engineer.
+
 ## Best Practices for Troubleshooting Coding Problems
 
 [How Senior Software Engineers solve coding problems](https://www.reddit.com/r/learnpython/comments/1ao82ku/whats_your_process_for_solving_coding_problems/)
@@ -19,6 +27,10 @@ The following process is what I strive to implement:
 ## Simple outline of decision making tree: using AI
 
 ![alt text](../Images/SolvingProblemsFlowChart.drawio.png)
+
+I used draw.io to create this workflow. Here is the draw.io file:
+
+![alt text](../11_Debugging/SolvingProblemsFlowChart.drawio)
 
 ## When do you prefer using AI vs. searching Google?
 
