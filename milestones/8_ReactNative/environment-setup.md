@@ -43,7 +43,7 @@ With Expo, you can:
 
 Command used to start Metro:
 
-![alt text](packageJson.png)
+![alt text](../Images/packageJson.png)
 
 ```
 expo start
@@ -57,11 +57,11 @@ npm run start
 
 Metro and Expo setup works fine:
 
-![alt text](expoSetup.png)
+![alt text](../Images/expoSetup.png)
 
 Opened Expo Go on Android device and scanned QR code to launch app and verified app loads successfully with hot reload working:
 
-![alt text](expoGoView.png)
+![alt text](../Images/expoGoView.png)
 
 - Hot reload & fast refresh. I edited a simple Text component in App.js and saw the changes reflected instantly on my device without losing state.
 

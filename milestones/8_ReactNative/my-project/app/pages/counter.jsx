@@ -25,7 +25,7 @@ const Counter = () => {
             <Button title="DECREMENT" onPress={handleDecrement}></Button>
             <Button title="INCREMENT" onPress={handleIncrement}></Button>
             
-            <View>
+            <View style={styles.incrementSection}>
                 <Text>Current Increment:</Text>
                 <TextInput
                     onChangeText={handleUpdateIncrement}
@@ -58,4 +58,11 @@ const styles = StyleSheet.create({
         textAlign: "center",
         margin: 20,
     },
+    incrementSection: {
+        flexDirection: "column",
+        alignItems: "center",
+        textAlign: "center",
+        marginTop: 10,
+        fontWeight: "bold"
+    }
 })

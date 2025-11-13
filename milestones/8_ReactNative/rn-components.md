@@ -32,3 +32,98 @@ Styling system:
 - React Native doesn’t have a browser DOM, so there’s no concept of CSS classes. THe concept of className comes from HTML AND CSS. SO instead of CSS files, React native used JS objects to describe styles  
 - Styles are applied directly to native components via the style prop and StyleSheet.create().  
 - This ensures a consistent, platform-agnostic styling approach.
+
+### Refactoring React Component -> React Native Component
+
+#### React Version
+
+![alt text](../Images/CounterCode.png)
+
+[Counter.jsx File Git link](https://github.com/StuvanFIT/Focus-Bear-React-Native/blob/main/milestones/5_React/my-project/src/ui/components/Counter/Counter.jsx)
+
+![alt text](../Images/RunningCounter.png)
+
+#### React Native Version
+
+![alt text](../Images/rn_counter.png)
+
+[LINK TO REACT NATIVE Counter.jsx](https://github.com/StuvanFIT/Focus-Bear-React-Native/blob/main/milestones/8_ReactNative/my-project/app/pages/counter.jsx)
+
+```
+import { StyleSheet, Text, TextInput, View, Button } from "react-native";
+import {useSelector, useDispatch} from "react-redux";
+import { increment as incrementAction, decrement as decrementAction, updateIncrement as updateIncrementAction} from "../redux/reducers/counter";
+
+const Counter = () => {
+
+    const count = useSelector(state => state.counter.value);
+    const increment = useSelector(state => state.counter.increment);
+
+
+    const dispatch = useDispatch(); //react hook that sends redux messages and lets redux know what happened
+
+
+    const handleIncrement = () => dispatch(incrementAction());
+    const handleDecrement = () => dispatch(decrementAction());
+    const handleUpdateIncrement = newIncrement => dispatch(updateIncrementAction(Number(newIncrement)));
+
+
+
+    return (
+        <View style={styles.card}>
+            
+            <Text style={styles.title}>Counter Page</Text>
+
+            <Button title="DECREMENT" onPress={handleDecrement}></Button>
+            <Button title="INCREMENT" onPress={handleIncrement}></Button>
+            
+            <View style={styles.incrementSection}>
+                <Text>Current Increment:</Text>
+                <TextInput
+                    onChangeText={handleUpdateIncrement}
+                    value={String(increment)}
+                    placeholder=""
+                    keyboardType="numeric"
+                />
+            </View>
+
+            <Text style={styles.title} testID="count-value">{count}</Text>
+            
+        </View>
+    )
+}
+
+export default Counter;
+
+const styles = StyleSheet.create({
+    card: {
+        padding:16,
+        borderRadius: 8,
+        backgroundColor: "#FBBF6B",
+        alignItems: "center",
+        margin:20
+    },
+
+    title: {
+        fontSize: 30,
+        fontWeight: "bold",
+        textAlign: "center",
+        margin: 20,
+    },
+    incrementSection: {
+        flexDirection: "column",
+        alignItems: "center",
+        textAlign: "center",
+        marginTop: 10,
+        fontWeight: "bold"
+    }
+})
+```
+
+Output on ExpoGo:
+
+![alt text](../Images/rn_counter_expoGo.png)
+
+Reflection:
+
+I noticed that it is quite difficult to use tailwind css in react native and apparently does not integrate well with react native (mixed reviews). I normally like to use tailwind css and it makes writing css more fun and enjoyable for me. This is why I enjoy writing css styling in React projects as most of the time, Im using tailwind css. However, in this react native refactoring, I had to use standard CSS, which was quite a pain since I forgot some of the syntax. However, I do like there is a style sheet for each component file, which keeps everything modularised and clean and I like the idea of assiginng different sections a style sheet item as it keeps the code clean instead of writing inline css code.
