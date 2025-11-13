@@ -7,7 +7,6 @@ const RootLayout = () => {
 
     return (
         <Provider store={store}>
-            
             <Stack screenOptions={{
                 headerStyle: { backgroundColor: "#ddd"},
                 headerTintColor: '#333',

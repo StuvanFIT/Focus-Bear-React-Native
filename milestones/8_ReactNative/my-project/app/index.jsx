@@ -1,16 +1,19 @@
-import { StyleSheet, Text, View, Image} from "react-native";
-import { Link } from "expo-router";
+import { StyleSheet, Text, View, Image, Button, Platform } from "react-native";
+import { Link, useRouter } from "expo-router";
 
 export const CustomText = ({ children }) => <Text>{children}</Text>;
 
-
 const Home = () => {
+    const router = useRouter()
+
+    const handleDeepLink = () => {
+        router.push('/pages/counter?value=75')
+    }
 
     return (
         <View style={styles.card}>
             <CustomText>Welcome!</CustomText>
             <Text style={styles.title}>Hello Focus Bear User!</Text>
-
 
             <Text style={styles.description}>This is the card component</Text>
 
@@ -19,24 +22,28 @@ const Home = () => {
                 source={{ uri: "https://picsum.photos/seed/picsum/200/300" }}
             />
 
-            <Link href="/pages/about" >About Page</Link>
-            <Link href="/pages/contact" >Contact Page</Link>
-            <Link href="/components/animatedView" >Animated Page</Link>
-            <Link href="/pages/fetch" >Fetch Page</Link>
-            <Link href="/pages/addition" >Sum A n B Page</Link>
-            <Link href="/pages/userInteraction" >Testing User Interaction</Link>
-            <Link href="/pages/counter" >Counter Page</Link>
-            <Link href="/pages/profile" >Profile Page</Link>
-            <Link href="/pages/responsive" >Responsive Page</Link>
+            <Link href="/pages/about">About Page</Link>
+            <Link href="/pages/contact">Contact Page</Link>
+            <Link href="/components/animatedView">Animated Page</Link>
+            <Link href="/pages/fetch">Fetch Page</Link>
+            <Link href="/pages/addition">Sum A n B Page</Link>
+            <Link href="/pages/userInteraction">Testing User Interaction</Link>
+            <Link href="/pages/counter">Counter Page</Link>
+            <Link href="/pages/profile">Profile Page</Link>
+            <Link href="/pages/responsive">Responsive Page</Link>
+
+            <Button 
+                title="Open Counter (value=25)" 
+                onPress={handleDeepLink}
+            />
            
         </View>
-    )
-}
+    );
+};
 
 export default Home;
 
 const styles = StyleSheet.create({
-
     card: {
         padding:16,
         borderRadius: 8,
@@ -61,6 +68,5 @@ const styles = StyleSheet.create({
         height: 150,
         marginVertical: 20,
         borderRadius: 8
-
     }
-})
+});

@@ -1,14 +1,23 @@
 import { StyleSheet, Text, TextInput, View, Button } from "react-native";
+import { useEffect } from "react";
 import {useSelector, useDispatch} from "react-redux";
 import { increment as incrementAction, decrement as decrementAction, updateIncrement as updateIncrementAction} from "../redux/reducers/counter";
+import { useLocalSearchParams } from "expo-router";
 
 const Counter = () => {
 
     const count = useSelector(state => state.counter.value);
     const increment = useSelector(state => state.counter.increment);
-
-
     const dispatch = useDispatch(); //react hook that sends redux messages and lets redux know what happened
+
+    const {value} = useLocalSearchParams();
+
+    //On mount, if deep link value exists, update increment action
+    useEffect(() => {
+        if (value && !isNaN(value)) {
+            dispatch(updateIncrementAction(Number(value)));
+        }
+    },[value])
 
 
     const handleIncrement = () => dispatch(incrementAction());
