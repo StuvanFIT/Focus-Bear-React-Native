@@ -63,7 +63,7 @@ function TestingUseEffect() {
 
         // Cleanup function
         return () => {
-            console.log("🧹 Cleaning up fetch (aborting request)");
+            console.log("Cleaning up fetch (aborting request)");
             controller.abort();
         };
 
@@ -95,6 +95,38 @@ function TestingUseEffect() {
 }
 
 export default TestingUseEffect;
+```
+
+## Testing useEffect in practice
+
+[LINK TO TestingUserEffect component](https://github.com/StuvanFIT/Focus-Bear-React-Native/blob/main/milestones/5_React/my-project/src/ui/components/TestingUseEffect.jsx)
+
+Here, is the code for testing userEffect and mounting/unmounting. We have console logs and will tell us if the component/section has unmounted/mounted or not.
+
+![alt text](../Images/useEffectTesting.png)
+
+![alt text](../Images/useEffectExample.png)
+
+We can see that "COMPONENT HAS MOUNTED" text being printed, meaning that the component has sucessfulyl mounted. If I navigate to the Profile page we created earlier, then we can see that the "COMPONENT HAS UNMOUNTED".
+
+![alt text](../Images/unmounting.png)
+
+## Before clicking the button (fetch api)
+
+![alt text](../Images/beforeFetchData.png)
+
+## After clicking the button (fetch api)
+
+![alt text](../Images/afterFetchData.png)
+
+Here, we also implemented a cleanup function after we have finished fetching the data
+
+```
+// Cleanup function
+return () => {
+    console.log("Cleaning up fetch");
+    controller.abort();
+};
 ```
 
 ### When should you use useEffect instead of handling logic inside event handlers ?
