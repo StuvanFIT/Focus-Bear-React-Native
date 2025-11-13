@@ -61,6 +61,10 @@ function counterReducer(state:{value:0}, action) {
 
 ### With createSlice
 
+![alt text](createSlice.png)
+
+[LINK TO counterSlice File on Github](https://github.com/StuvanFIT/Focus-Bear-React-Native/blob/main/milestones/5_React/my-project/src/redux/counterSlice.js)
+
 We can simplify all of the above by doing this:
 
 ```
@@ -89,6 +93,20 @@ then, you can use those actions by exporting
 ```
 export const { increment, decrement, reset } = counterSlice.actions;
 ```
+
+### configureStore
+
+![alt text](configureStore.png)
+
+[LINK TO configureStore](https://github.com/StuvanFIT/Focus-Bear-React-Native/blob/main/milestones/5_React/my-project/src/redux/store.js)
+
+### Full Example of using Redux tools: createSlice and configureStore in a react component
+
+![alt text](../Images/CounterCode.png)
+
+Pushed to the repo:
+
+[Counter.jsx File Git link](https://github.com/StuvanFIT/Focus-Bear-React-Native/blob/main/milestones/5_React/my-project/src/ui/components/Counter/Counter.jsx)
 
 ## When should you use Redux instead of useState?
 
