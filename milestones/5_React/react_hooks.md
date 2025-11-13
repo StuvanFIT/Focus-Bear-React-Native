@@ -206,7 +206,11 @@ So effectively, it’s the same as:
 const memoizedValue = computeExpensiveValue(a, b);
 ```
 
-Example of using useMemo
+## Example of using useMemo
+
+[LINK TO TestingUseMemo Component](https://github.com/StuvanFIT/Focus-Bear-React-Native/blob/main/milestones/5_React/my-project/src/ui/components/TestingUseMemo.jsx)
+
+![alt text](../Images/TestingUseMemo.png)
 
 ```
 import React, {useState, useMemo} from "react";
@@ -272,6 +276,21 @@ function TestingUseMemo() {
 
 export default TestingUseMemo;
 ```
+
+Running useMemo:
+
+![alt text](../Images/TestingUseMemo2.png)
+
+To test if the sum value is cached, we will implement a button that changes the state of count
+and force the component to re render. We should see that the computeSum did not execute and we used the previous value.
+
+When clicking “Re-render”, the component re-renders but the console does not log "I am inside USEMEMO", confirming that the previous computation was cached and not recalculated.
+However, clicking “Increase the multiplier” triggers "I am inside USEMEMO" again because the dependency (multiplier) changed, causing React to recompute the value.
+
+This exercise clearly showed how useMemo improves performance in React when dealing with expensive computations.
+Initially, when I removed useMemo, the console logged "I am inside USEMEMO" every time I re-rendered and even if the multiplier didn’t change. The UI became noticeably slower and lagged slightly due to the repeated nested loops running thousands of iterations.
+
+After adding useMemo, React only recomputed when the multiplier dependency changed, keeping the app responsive. This reinforced my understanding that useMemo should be used selectively for heavy computations to prevent unnecessary work and improve render performance.
 
 ### How does useMemo improve performance?
 
