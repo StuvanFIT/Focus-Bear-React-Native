@@ -133,6 +133,41 @@ export const selectCounterValue = (state) => state.counter.value;
 
 This function expects the entire store state object as its argument, and simply returns the part of it you care about (state.counter.value)
 
+## `useSelector` Example
+
+TO increase code reusability, we will use useSelector here to make it more organised instead of letting the Counter component handle it.
+
+```
+export const selectCounterValue = (state) => state.counter.value;
+```
+
+![alt text](useSelector.png)
+
+Value is 0:
+
+![alt text](useSelectorValue0.png)
+
+Greater than 1:
+
+![alt text](useSelectorValueOver1.png)
+
+Over 10:
+
+![alt text](useSelectorValueOver10.png)
+
+Then, depending on the counter value, we will show a specific message:
+
+![alt text](useSelectorMessage.png)
+
+Reflection:
+
+- Increased reusability: I was able to use the same selectCounterValue selector in both Counter and CounterMessage components. No need to duplicate logic.
+- Improved readability: By abstracting the state logic into a selector, the components only focus on rendering, making the code cleaner and easier to understand.
+- Easier refactoring: When I changed the state structure in counterSlice, I only had to update the selector. All components using it automatically worked without changes.
+- Debugging improvement: When inspecting Redux DevTools, it was easier to track which components relied on the counter value and how re-renders occurred.
+
+TLDR: Using selectors made my workflow faster, reduced bugs, and made the codebase more maintainable.
+
 ## What are the benefits of using selectors instead of directly accessing state?
 
 Using selectors provide many benefits and moslty improvement of code structure, more organised and maintainable in the future.
