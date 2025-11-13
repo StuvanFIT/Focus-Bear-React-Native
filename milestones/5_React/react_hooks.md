@@ -317,16 +317,16 @@ useCallback is a React Hook that lets you cache a function definition between re
 
 [LINK TO GITHUB USECALLBACK COMPONENT](https://github.com/StuvanFIT/Focus-Bear-React-Native/blob/main/milestones/5_React/my-project/src/ui/components/TestingUseCallBack.jsx)
 
-![alt text](TestingUseCallBack.png)
+![alt text](../Images/TestingUseCallBack.png)
 
-![alt text](withoutUseCallBack.png)
+![alt text](../Images/withoutUseCallBack.png)
 
 Without useCallback:
 
 - Toggling the theme state caused both the parent and the child to re-render.
 - In the console, you can see ChildButton logging "CHILD COMPONENT IS RENDERED" on every parent re-render, even though the child’s output did not change.
 
-![alt text](withUseCallBack.png)
+![alt text](../Images/withUseCallBack.png)
 
 With useCallback:
 

@@ -14,6 +14,74 @@ The main features of AXIOS:
 - Automatic JSON parsing
 - Supports all HTTP Methods
 
+## Example of using Axios
+
+![alt text](../Images/axiosComponent.png)
+
+[LINK TO AXIOS COMPONENT](https://github.com/StuvanFIT/Focus-Bear-React-Native/blob/main/milestones/5_React/my-project/src/ui/components/AxiosComponent.jsx)
+
+We need to create an axios instace:
+
+![alt text](../Images/axiosInstance.png)
+
+[LINK TO AXIOS INSTANCE](https://github.com/StuvanFIT/Focus-Bear-React-Native/blob/main/milestones/5_React/my-project/src/api/axiosInstance.js)
+
+Then, we create a sample test request. This will be an API call. We will use the placeholder api testing site.
+
+![alt text](../Images/axiosTestRequest.png)
+
+[LINK TO TEST REQUEST](https://github.com/StuvanFIT/Focus-Bear-React-Native/blob/main/milestones/5_React/my-project/src/api/testRequest.js)
+
+Tested Output Response:
+
+![alt text](../Images/axiosOutput.png)
+
+```
+0
+: 
+{userId: 1, id: 1, title: 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit', body: 'quia et suscipit\nsuscipit recusandae consequuntur …strum rerum est autem sunt rem eveniet architecto'}
+1
+: 
+{userId: 1, id: 2, title: 'qui est esse', body: 'est rerum tempore vitae\nsequi sint nihil reprehend…aperiam non debitis possimus qui neque nisi nulla'}
+2
+: 
+{userId: 1, id: 3, title: 'ea molestias quasi exercitationem repellat qui ipsa sit aut', body: 'et iusto sed quo iure\nvoluptatem occaecati omnis e…\nmolestiae porro eius odio et labore et velit aut'}
+3
+: 
+{userId: 1, id: 4, title: 'eum et est occaecati', body: 'ullam et saepe reiciendis voluptatem adipisci\nsit … ipsam iure\nquis sunt voluptatem rerum illo velit'}
+4
+: 
+{userId: 1, id: 5, title: 'nesciunt quas odio', body: 'repudiandae veniam quaerat sunt sed\nalias aut fugi…sse voluptatibus quis\nest aut tenetur dolor neque'}
+5
+: 
+{userId: 1, id: 6, title: 'dolorem eum magni eos aperiam quia', body: 'ut aspernatur corporis harum nihil quis provident …s\nvoluptate dolores velit et doloremque molestiae'}
+```
+
+This is the requested Config:
+
+![alt text](../Images/requestedConfig.png)
+
+Endpoint tested: `https://jsonplaceholder.typicode.com/posts`
+
+Response: Array of post objects, successfully logged in console
+Handled timeout via timeout: 8000 in axios instance
+Handled request/response logging using interceptors
+
+Handling Errors:
+
+![alt text](../Images/axiosError.png)
+
+Reflection:
+
+While testing Axios:
+
+- The request condif was sucessfully logged onto the console and verified the headers, tokens and timeout.
+- I verified that interceptors worked, logging every request and response. The timeout configuration successfully prevents hanging requests.
+- Using the Axios instance simplified repeated calls, keeping the code DRY.
+- Fetching posts from JSONPlaceholder returned a consistent response, and printing the response.data into the console.
+
+This demonstrated practical application of Axios for making HTTP requests, handling responses, and maintaining clean code through reusable instances.
+
 ## Why is it useful to create a reusable Axios instance?
 
 I found it useful to create an Axios instance as it:

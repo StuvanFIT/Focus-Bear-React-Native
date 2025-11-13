@@ -14,11 +14,7 @@ export const cancellableRequest = async () => {
     const abortController = new AbortController();
     
     try {
-        const response = await axiosInstance.post(
-            "https://jsonplaceholder.typicode.com/posts",
-            {data: "example data"},
-            {signal: abortController.signal}
-        )
+        const response = await axiosInstance.get("https://jsonplaceholder.typicode.com/pqosts")
 
         console.log(response.data)
     } catch (error) {
