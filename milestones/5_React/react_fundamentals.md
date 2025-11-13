@@ -140,7 +140,7 @@ function HelloWorld({name}) {
 export default HelloWorld;
 ```
 
-![alt text](helloWorldProp.png)
+![alt text](../Images/helloWorldProp.png)
 
 In this screen shot, I passed the name prop with the value "Steven Kaing" into the HelloWorld function
 
@@ -152,7 +152,7 @@ It rendered: "Hello, Steven Kaing!"
 
 ## Example: Creating `Counter.jsx` component with a button that increments a number when clicked
 
-![alt text](image.png)
+![alt text](../Images/CounterCode.png)
 
 Pushed to the repo:
 
@@ -160,7 +160,7 @@ Pushed to the repo:
 
 Running the Counter:user is able to increment, decrement or reset the counter.
 
-![alt text](image-1.png)
+![alt text](../Images/RunningCounter.png)
 
 No challenges were faced when building this `Counter` component. However, a thing I noticed in the original code of the Counter was that I had `CounterMessage` in the samel file as the `Counter` component, which did not clearly adhere to any SOLID Principles or Single Responsibility Principle. So, I had to refactor the `Counter` and modularise it by creating `CounterMessage`. Then, I embedded `CounterMessage` inside the `Counter` component.
 

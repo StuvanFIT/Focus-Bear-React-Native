@@ -115,4 +115,4 @@ export default App;
 
 ## 8. Click on the Localhost link. Your React application should be displayed on the localhost port (i.e. 4000)
 
-![alt text](react.png)
+![alt text](../Images/react.png)
