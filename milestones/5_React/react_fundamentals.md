@@ -195,6 +195,43 @@ There are some key things to note when working with lists in react:
 - Creating very large lists. Rendering large lists can slow performance and there needs to be methods in place to encourage optimisation
 - Conditional Rendering should be used. For example, if there are no list items in the list, there should be a fallback UI to handle the display of no list items (i.e. No tasks have been added).
 
+## Setting up React Router
+
+To set up React Router, I used the official package react-router-dom, which allows us to handle client-side routing in React without full page reloads.
+
+```
+npm install react-router-dom
+```
+
+In the main.jsx file, I imported BrowserRouter and wrapped the entire app with it so that React Router can manage navigation across all pages.
+
+![alt text](../Images/mainJsx.png)
+
+Then, I created the Home page and Profile page for testing.
+
+![alt text](../Images/Home.png)
+
+![alt text](../Images/Profile.png)
+
+We have to then setup the navigation using `Link` and `Routes` in `App.jsx` and set up the links to navigate to in `Home.jsx`
+
+![alt text](../Images/AppJsx.png)
+
+Then we run the app with `npm run dev`
+
+![alt text](../Images/NavBar.png)
+
+![alt text](../Images/ProfilePage.png)
+
+Reflection:
+No major challenges were faced when setting up React Router. However, one minor issue was that I initially forgot to wrap the `<App />` component with `<BrowserRouter>` inside main.jsx, which caused an error:
+
+```
+“useRoutes() may be used only in the context of a `<Router>` component.”
+```
+
+Once I fixed that, navigation worked correctly. I tested the routing by clicking the Home and Profile buttons multiple times and observing that the URL changed (e.g. /...../profile) without refreshing the entire page, confirming that client-side routing was working as expected.
+
 ## What are advantages of Client-Side Routing?
 
 In standard server-side routing (Website), every time you click on a link button, the browser will send a GET request to the server and in response, the server will proivde the HTML page and all the CSS, Javascript, images and other assets it has just received.
