@@ -20,6 +20,8 @@ const RootLayout = () => {
                 <Stack.Screen name="pages/addition" options={{title: 'Addition'}} />
                 <Stack.Screen name="pages/userInteraction" options={{title: 'Testing User Interaction'}} />
                 <Stack.Screen name="pages/counter" options={{title: 'Counter'}} />
+                <Stack.Screen name="pages/profile" options={{title: 'Profile'}} />
+                <Stack.Screen name="pages/responsive" options={{title: 'Responsive'}} />
             </Stack>
         </Provider>
     )

@@ -62,11 +62,93 @@ StyleSheet.create() compiles styles into IDs and sends them to the native side o
 
 There are React Native UI Frameworks:
 
-1. @rneui/themed (REACT NATIVE ELEMENTS). This framework provides prebuilt and custom UI components like buttons and sliders
+### @rneui/themed (REACT NATIVE ELEMENTS). This framework provides prebuilt and custom UI components like buttons and sliders
 
 [React native elements](https://reactnativeelements.com/)
 
-2. react-native-paper. Very simple, customisable and also has prebuilt components. However, it doesnt seem to have much support lately
+While experimenting with React Native, I installed @rneui/themed (React Native Elements) to style a profile card and a few buttons quickly without writing repetitive custom styles.
+
+```
+npm install @rneui/themed
+```
+
+![alt text](../Images/rneui.png)
+
+```
+import { Link } from "expo-router";
+import { StyleSheet } from "react-native";
+import { Button, Card, Text } from "@rneui/themed";
+
+const Profile = () => {
+
+    return (
+        <Card>
+            <Card.Title>Steven Kaing</Card.Title>
+            <Card.Divider />
+            <Text style={{ textAlign: "center", marginBottom: 10 }}>
+                Software Engineering Student
+            </Text>
+            <Button title="Follow" onPress={() => console.log("Followed!")} />
+        </Card>
+    );
+}
+
+export default Profile;
+
+const styles = StyleSheet.create({
+})
+```
+
+I built this simple profile card component that used the Button, Card and Text from React native elements library. It has a button that imitates a "FOLLOW ME BUTTON" on instagram and displays my name.
+Using @rneui/themed helped me save time on styling since it came with ready-made UI components. However, I needed to check their docs to see what builtin components they had which took a while. It reminded me that third-party UI kits often require understanding their internal style layers.
+
+Challenges faced:
+
+When trying to install React Native Elements, I kept getting this message
+
+```
+Found: react-native-safe-area-context@5.6.2
+Could not resolve dependency:
+peer react-native-safe-area-context@"^3.1.9 || ^4.0.0" from @rneui/base@4.0.0-rc.7
+```
+
+This means that the project currently has react-native-safe-area-context@5.6.2 (a newer version). But @rneui/themed depends on @rneui/base@4.0.0-rc.7, which only supports version 3.x or 4.x of react-native-safe-area-context.
+
+So npm refuses to install it because it sees incompatible peer dependencies.
+
+I could force install it but that would lead to future issues. I wanted to make sure that when starting the application, instead of forcing npm to ignore it, you can tell npm to explicitly resolve it by overriding what version of react-native-safe-area-context should be used for @rneui/base.
+
+[Supporting comment](https://www.reddit.com/r/nextjs/comments/1hflgi6/force_or_legacypeerdeps/)
+
+```
+{
+  "name": "8_reactnative",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "react-native-safe-area-context": "~5.6.0",
+    "@rneui/themed": "^4.0.0-rc.8"
+  },
+  "overrides": {
+    "@rneui/base": {
+      "react-native-safe-area-context": "5.6.2"
+    }
+  }
+}
+```
+
+if any package (like @rneui/base) tries to install or use react-native-safe-area-context, ignore what it asked for and force it to use version 5.6.2 instead.
+
+> TLDR:
+> You (root project): “I want safe-area-context@5.6.2.”
+> @rneui/base: “I want safe-area-context@^3.1.9 || ^4.0.0.”
+> npm (with override): “Sorry, @rneui/base, the boss bro said we’re using 5.6.2, no arguments.”
+
+- Forces @rneui/base (and anything else under it) to use react-native-safe-area-context@5.6.2.
+- Keeps your dependency tree consistent and explicit.
+- Prevents npm from silently breaking something else in the future. IGNORANCE IS BLISS
+
+### react-native-paper. Very simple, customisable and also has prebuilt components. However, it doesnt seem to have much support lately
 
 [React native paper](https://reactnativepaper.com/)
 
@@ -133,6 +215,59 @@ Some custom ones from others:
 [react native responsive sizes](https://github.com/react-native-responsive-sizes/react-native-responsive-sizes)
 
 >"You need to scale based on pixel density. Do not just style just based on screen width/height. Basically replace all pixel >values (the default) with scaled versions of those values using functions from the packages i mentioned. Then of course for >some things you can also toggle different styles based on screen width/height for some things when necessary."
+
+### Testing screen responsiveness
+
+![alt text](../Images/useWindowDimensionCode.png)
+
+```
+import React from "react";
+import { View, Text, useWindowDimensions, StyleSheet } from "react-native";
+
+function Responsive() {
+  const { width, height } = useWindowDimensions();
+  const isTablet = width > 768;
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text}>Width: {width.toFixed(0)}</Text>
+      <Text style={styles.text}>Height: {height.toFixed(0)}</Text>
+      <Text style={styles.text}>
+        Device Type: {isTablet ? "Big Device" : "Phone"}
+      </Text>
+    </View>
+  );
+}
+
+export default Responsive;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  text: {
+    fontSize: 18,
+    margin: 5,
+  },
+});
+
+```
+
+Big screen device:
+
+![alt text](../Images/bigScreen.png)
+
+Small screen device (my phone):
+
+![alt text](../Images/smallScreen.png)
+
+From these screenshots, we can see that it shows dynamic width/height values changing when rotating or screen size changes
+
+What I learned:
+
+Using useWindowDimensions made it easy to detect device width changes in real-time, which is much simpler than manually subscribing to dimension events. It helped me realise that React Native responsiveness is more code-driven than the standard CSS-based where you had to manually define dimnesions and use media queries. In this case, I had to handle layout logic dynamically instead of relying on media queries.
 
 ## Why does React Native use camelCase instead of traditional CSS properties?
 

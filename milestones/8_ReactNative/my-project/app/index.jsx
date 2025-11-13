@@ -26,6 +26,8 @@ const Home = () => {
             <Link href="/pages/addition" >Sum A n B Page</Link>
             <Link href="/pages/userInteraction" >Testing User Interaction</Link>
             <Link href="/pages/counter" >Counter Page</Link>
+            <Link href="/pages/profile" >Profile Page</Link>
+            <Link href="/pages/responsive" >Responsive Page</Link>
            
         </View>
     )
