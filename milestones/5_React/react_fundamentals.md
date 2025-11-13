@@ -175,6 +175,17 @@ When you modify the `useState` directly instead of using `setState`, it can lead
 
 TLDR: Never mutate the this.state as React will not know if you have mutated that state!
 
+## Example of Input List Component
+
+![alt text](../Images/inputList.png)
+
+[Link to Input List component on repo](https://github.com/StuvanFIT/Focus-Bear-React-Native/blob/main/milestones/5_React/my-project/src/ui/components/InputList.jsx)
+
+Output:
+
+![alt text](../Images/inputListOutput.png)
+
+No challenges were faced when creating this input list component other than forgetting how to embed javascript code inside html. I forgot that I had to use "{}" curly brackets.
 ## Common Issues When Working with Lists in React
 
 There are some key things to note when working with lists in react:
