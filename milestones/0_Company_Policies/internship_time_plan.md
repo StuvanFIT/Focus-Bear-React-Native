@@ -45,4 +45,13 @@ Note that the following may change a bit but it is always good to have a plan be
 - Potential for reduced hours during critical academic periods if necessary
 - Potential for increased hours during the break
 
+### The start of my focus bear session journey
+
+> NOTE: I created an account but i deleted it in mid October. SO this will be my updated account i will be using
+> userid: cc2ef644-8004-409f-8340-284ae8290b38
+
+![alt text](../Images/focusbearAccount.png)
+
+![alt text](../Images/examplefocusbearsession.png)
+
 ---

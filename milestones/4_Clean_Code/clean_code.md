@@ -207,43 +207,67 @@ Martinez, Y. (2023). "The Power of small and focused functions in software devel
 
 ### Before Refactoring (Long and Complex Function)
 
+FILE CHANGED: `4_Clean_Code/orderUtils.java`
+BEFORE REFACTORING COMMIT LINK: [Committing long complex function](https://github.com/StuvanFIT/Focus-Bear-React-Native/commit/bcddcba4cb5138aa4d0ccbb1b5c51cb4bff69fd9)
+
 ```
-public double calculateTotalPrice() {
-  double totalPrice = 0.0;
-  // Calculate the price of each item
-  // Apply discounts to the total price
-  // Calculate tax on the total price
-  return totalPrice;
+public double calculateOrder(double[] prices, double discountRate, double taxRate) {
+    double subtotal = 0;
+    for (double price : prices) {
+        subtotal += price;
+    }
+    double discount = subtotal * discountRate;
+    double taxedTotal = (subtotal - discount) + ((subtotal - discount) * taxRate);
+    System.out.println("Subtotal: " + subtotal);
+    System.out.println("Discount: " + discount);
+    System.out.println("Taxed Total: " + taxedTotal);
+    return taxedTotal;
 }
+
 ```
 
 Here, `calulcateTotalPrice` has 3 responsibilities: calculating the price of each item, applying discounts to the total price, and calculating the tax on the total price.
 
 ### After Refactoring (Short and Simpler Functions)
 
+FILE CHANGED: `4_Clean_Code/orderUtils.java`
+REFACTORING COMMIT LINK: [Refactoring into short and simpler function](https://github.com/StuvanFIT/Focus-Bear-React-Native/commit/9511ffd58e4da0d49478133c284a38c53bcc16f4)
+
 ```
-public double calculateTotalPrice() {
-  double totalPrice = 0.0;
-  totalPrice += calculateItemPrice();
-  totalPrice -= applyDiscounts();
-  totalPrice += calculateTax();
-  return totalPrice;
+public double calculateOrder(double[] prices, double discountRate, double taxRate) {
+    double subtotal = calculateSubtotal(prices);
+    double discounted = applyDiscount(subtotal, discountRate);
+    double total = applyTax(discounted, taxRate);
+    printSummary(subtotal, discounted, total);
+    return total;
 }
 
-public double calculateItemPrice() {
-  // Calculate the price of each item
+private double calculateSubtotal(double[] prices) {
+    double subtotal = 0;
+    for (double price : prices) subtotal += price;
+    return subtotal;
 }
 
-public double applyDiscounts() {
-  // Apply discounts to the total price
+private double applyDiscount(double subtotal, double discountRate) {
+    return subtotal - (subtotal * discountRate);
 }
 
-public double calculateTax() {
-  // Calculate tax on the total price
+private double applyTax(double amount, double taxRate) {
+    return amount + (amount * taxRate);
 }
+
+private void printSummary(double subtotal, double discounted, double total) {
+    System.out.println("Subtotal: " + subtotal);
+    System.out.println("After Discount: " + discounted);
+    System.out.println("Final Total: " + total);
+}
+
 ```
 
 Each function performs a specific task and are used to calcualte the total price. The code is modularised and every function has a clear purpose and is much more readable.
+
+While refactoring this function, I realised how much easier it became to understand and modify.
+Originally, all logic was bundled into one method, which it made it difficult to test or extend (for example, adding different tax rates for places). After breaking it into smaller methods, I could test each part independently and immediately caught a rounding bug in the discount calculation. The structure now feels cleaner and easier to maintain in the future.
 
 ---
 
@@ -259,6 +283,8 @@ DRY is a software development principle that aims to encourage software develope
 
 Below is an example of duplicated code and the refactored version
 <https://gist.githubusercontent.com/NyaGarcia/7f19fcd5211dc9b99fa1a957c9219f68/raw/f7d2f7b71393bc07d8731a087fd043d0f982d5fd/duplication.js>
+
+Files changes: `duplicatedCode.js` and `refactoredDuplicatedCode.js`
 
 ### Before Refactoring (lots of duplication)
 
@@ -303,6 +329,10 @@ function getGolangNews() {
 }
 ```
 
+Before refactoring:
+
+![alt text](../Images/duplicatedCode.png)
+
 If you inspect the code above, we noticed that all functions and methods are very similar, the only difference being the "type" of news being retrieved from allNews. Having 3 methods is pointless and we can combine this inot one reusable function that can be applied anywhere in the codebase provided they have a "type".
 If a change is neede in how you retrieve news, we would need to update logic or perform editing in three places.
 
@@ -326,6 +356,10 @@ const rustNews = getNewsByType("rust");
 const golangNews = getNewsByType("golang");
 ```
 
+Result:
+
+![alt text](../Images/refactoredDuplicatedCode.png)
+
 OR we can do this
 
 ```
@@ -346,6 +380,8 @@ With this change, it resulted in:
 - Able to be updated in only one place
 - Just call with a new type argument
 - Concise and expressive
+
+COMMIT LINK FOR THE ABOVE EXAMPLES: [Duplicated and Refactored version commit link](https://github.com/StuvanFIT/Focus-Bear-React-Native/commit/4382a607536c63b8a5aba44df2f42c0d9f778dee)
 
 ---
 
@@ -409,6 +445,8 @@ In the refactored version, we:
 - Observed that the refactored version is much cleaner, concise and easier to maintain while keeping the exact same behaviour/functionality.
 
 ---
+
+COMMIT LINK: [refactored and ovecomplicated code commit link](https://github.com/StuvanFIT/Focus-Bear-React-Native/commit/e1b97c6afcc3c85ee55e980da99200ad81898d9c)
 
 # Commenting & Documentation
 
@@ -679,5 +717,19 @@ I made sure to include simple valid inputs and edges such as adding integers and
 I didnt really come across any direct issues to do with the actual testing experience. However, it became clear that to do high quality testing, you needed high quality test cases. In order to achieve this, you need a good understanding of your application and all of its edge cases. If you miss one, then it can lead to potential bugs or defects that are missed.
 
 Additionally, I had to run `npm run test` every iteration which was tiring. Thus, i automated the process using the extension `Jest Explorer`.
+
+### Example Demonstration of Unit Testing
+
+[Link to Unit Testing Directory](https://github.com/StuvanFIT/Focus-Bear-React-Native/tree/main/Unit%20Testing)
+
+[Link to isUserLoggedIn Test scripts](https://github.com/StuvanFIT/Focus-Bear-React-Native/blob/main/Unit%20Testing/Jest/src/test/isUserLoggedIn.test.js)
+
+![alt text](../Images/unitTesting1.png)
+
+This is a screenshot of the test cases for `isUserLoggedIn`
+
+Outputs:
+
+![alt text](../Images/unitTesting2.png)
 
 ---

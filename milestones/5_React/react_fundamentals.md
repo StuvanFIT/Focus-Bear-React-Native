@@ -114,6 +114,56 @@ Components allow you to break down complex UIs you want to render into smaller, 
 
 These components can also be reusued across the project and having components in different/separate files allows us to maintain the codebase.
 
+Example of `HelloWorld.jsx` component
+
+ [LINK TO `HelloWorld.jsx` component:](https://github.com/StuvanFIT/Focus-Bear-React-Native/blob/fix/FocusBearQAFeedback/milestones/5_React/my-project/src/ui/components/HelloWorld.jsx)
+
+```
+import React from 'react';
+
+function HelloWorld({name}) {
+
+    return (
+        <div className="min-h-screen flex flex-col justify-center items-center text-gray-800 p-6">
+            <div className="bg-orange-50 rounded-2xl shadow-lg p-10 max-w-2xl text-center">
+                <h1 className="text-4xl md:text-5xl font-extrabold mb-6 text-orange-600">
+                    Hello, Focus Bear!
+                </h1>
+                <p className='text-2xl md:text-xl font-extrabold mb-6 text-orange-600'>
+                    Hello, {name}!
+                </p>
+            </div>
+        </div>
+    )
+}
+
+export default HelloWorld;
+```
+
+![alt text](../Images/helloWorldProp.png)
+
+In this screen shot, I passed the name prop with the value "Steven Kaing" into the HelloWorld function
+
+```
+<HelloWorld name={"Steven Kaing"}>
+```
+
+It rendered: "Hello, Steven Kaing!"
+
+## Example: Creating `Counter.jsx` component with a button that increments a number when clicked
+
+![alt text](../Images/CounterCode.png)
+
+Pushed to the repo:
+
+[Counter.jsx File Git link](https://github.com/StuvanFIT/Focus-Bear-React-Native/blob/main/milestones/5_React/my-project/src/ui/components/Counter/Counter.jsx)
+
+Running the Counter:user is able to increment, decrement or reset the counter.
+
+![alt text](../Images/RunningCounter.png)
+
+No challenges were faced when building this `Counter` component. However, a thing I noticed in the original code of the Counter was that I had `CounterMessage` in the samel file as the `Counter` component, which did not clearly adhere to any SOLID Principles or Single Responsibility Principle. So, I had to refactor the `Counter` and modularise it by creating `CounterMessage`. Then, I embedded `CounterMessage` inside the `Counter` component.
+
 ## What happens if we modify state directly instead of using setState?
 When you modify the `useState` directly instead of using `setState`, it can lead to several issues:
 
@@ -125,6 +175,17 @@ When you modify the `useState` directly instead of using `setState`, it can lead
 
 TLDR: Never mutate the this.state as React will not know if you have mutated that state!
 
+## Example of Input List Component
+
+![alt text](../Images/inputList.png)
+
+[Link to Input List component on repo](https://github.com/StuvanFIT/Focus-Bear-React-Native/blob/main/milestones/5_React/my-project/src/ui/components/InputList.jsx)
+
+Output:
+
+![alt text](../Images/inputListOutput.png)
+
+No challenges were faced when creating this input list component other than forgetting how to embed javascript code inside html. I forgot that I had to use "{}" curly brackets.
 ## Common Issues When Working with Lists in React
 
 There are some key things to note when working with lists in react:
@@ -133,6 +194,43 @@ There are some key things to note when working with lists in react:
 - Directly mutating the array (e.g toDoList.push(newItem)) won’t trigger a re-render and won't update the UI
 - Creating very large lists. Rendering large lists can slow performance and there needs to be methods in place to encourage optimisation
 - Conditional Rendering should be used. For example, if there are no list items in the list, there should be a fallback UI to handle the display of no list items (i.e. No tasks have been added).
+
+## Setting up React Router
+
+To set up React Router, I used the official package react-router-dom, which allows us to handle client-side routing in React without full page reloads.
+
+```
+npm install react-router-dom
+```
+
+In the main.jsx file, I imported BrowserRouter and wrapped the entire app with it so that React Router can manage navigation across all pages.
+
+![alt text](../Images/mainJsx.png)
+
+Then, I created the Home page and Profile page for testing.
+
+![alt text](../Images/Home.png)
+
+![alt text](../Images/Profile.png)
+
+We have to then setup the navigation using `Link` and `Routes` in `App.jsx` and set up the links to navigate to in `Home.jsx`
+
+![alt text](../Images/AppJsx.png)
+
+Then we run the app with `npm run dev`
+
+![alt text](../Images/NavBar.png)
+
+![alt text](../Images/ProfilePage.png)
+
+Reflection:
+No major challenges were faced when setting up React Router. However, one minor issue was that I initially forgot to wrap the `<App />` component with `<BrowserRouter>` inside main.jsx, which caused an error:
+
+```
+“useRoutes() may be used only in the context of a `<Router>` component.”
+```
+
+Once I fixed that, navigation worked correctly. I tested the routing by clicking the Home and Profile buttons multiple times and observing that the URL changed (e.g. /...../profile) without refreshing the entire page, confirming that client-side routing was working as expected.
 
 ## What are advantages of Client-Side Routing?
 

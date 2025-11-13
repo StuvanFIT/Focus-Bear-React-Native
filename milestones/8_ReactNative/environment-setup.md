@@ -35,6 +35,40 @@ With Expo, you can:
 - NO NEED FOR NATIVE BUILDS AND SAVES TIME
 - Easier and faster test builds via QR CODES
 
+### Personal Setup Details
+
+- OS/IDE: Windows 10, VS Code
+- Node & Expo CLI: Node v20, npm v9, Expo CLI installed globally
+- Installed EXPO GO from app store
+
+Command used to start Metro:
+
+![alt text](../Images/packageJson.png)
+
+```
+expo start
+```
+
+or
+
+```
+npm run start
+```
+
+Metro and Expo setup works fine:
+
+![alt text](../Images/expoSetup.png)
+
+Opened Expo Go on Android device and scanned QR code to launch app and verified app loads successfully with hot reload working:
+
+![alt text](../Images/expoGoView.png)
+
+- Hot reload & fast refresh. I edited a simple Text component in App.js and saw the changes reflected instantly on my device without losing state.
+
+- Minor hurdles: Initially forgot to allow VS Code to access Node path in my terminal, which caused expo start to fail. Resolved by restarting VS Code and ensuring environment variable included Node.
+
+- Observations: Using Expo + Metro significantly reduced setup time compared to configuring Android Studio and Xcode manually. Ive used Swift and needed Xcode to design IOS apps but was slow and felt too restrcited. It allowed me to quickly focus on React Native components rather than environment setup.
+
 ### What issues did you encounter, and how did you resolve them?
 
 During my setup, I didnt face any major issues as it was pretty clear and intuitive with the help of the above tutorial.

@@ -4,12 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port=4000",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@redux-devtools/extension": "^3.3.0",
     "@reduxjs/toolkit": "^2.9.2",
     "@tailwindcss/vite": "^4.1.14",
     "axios": "^1.12.2",

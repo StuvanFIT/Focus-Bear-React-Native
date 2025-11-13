@@ -2,6 +2,8 @@
 
 ## Gesture Handling (`react-native-gesture-handler`)
 
+Install via the [expo react native gesture handler docs](https://docs.expo.dev/versions/latest/sdk/gesture-handler/)
+
 `react-native-gesture-handler` is a library that provides high-performance gesture recognition for React Native apps.
 It moves gesture handling from the JavaScript thread to the native layer, making gestures more fluid and reliable.
 
@@ -46,9 +48,169 @@ For example, we would use gestures when:
 
 ## Animations (`react-native-reanimated`) (UI THREAD)
 
+Install via the [expo react native reanimated docs](https://docs.expo.dev/versions/latest/sdk/reanimated/)
+
 An advanced animation library that runs animations on the UI thread (not JS), enabling buttery-smooth, interruptible, and gesture-linked animations.
 
 Use react-native-reanimated For high-performance, gesture-based, or complex animations (like draggable components, interactive transitions, etc.)
+
+## React native gesture handler + react native reanimated example
+
+```
+import { StyleSheet, Text, View, Image, Button, ScrollView } from "react-native";
+import { Link, useRouter } from "expo-router";
+import Animated, {useAnimatedStyle, useSharedValue, withSpring} from "react-native-reanimated";
+import { Gesture, GestureDetector } from "react-native-gesture-handler";
+
+export const CustomText = ({ children }) => <Text>{children}</Text>;
+
+const Home = () => {
+    const router = useRouter()
+    const imageSize = 200
+    const translateX = useSharedValue(0)
+    const translateY = useSharedValue(0)
+    const scaleImage = useSharedValue(imageSize)
+
+
+    const doubleTap = Gesture.Tap()
+        .numberOfTaps(2)
+        .onStart(() => {
+            if (scaleImage.value !== imageSize * 2) {
+                //increase the size by double
+                scaleImage.value = scaleImage.value * 2
+            } else {
+                //decrease the size by double
+                scaleImage.value = Math.round(scaleImage.value /2)
+            }
+    });
+    
+
+    const drag = Gesture.Pan().onChange((event) => {
+        translateX.value += event.changeX;
+        translateY.value += event.changeY;
+    });
+
+
+    // --- Combined gestures (you can drag + double tap the same image) ---
+    const combinedGesture = Gesture.Simultaneous(drag, doubleTap);
+
+    // --- Animated image style ---
+    const imageStyle = useAnimatedStyle(() => {
+        return {
+        width: withSpring(scaleImage.value),
+        height: withSpring(scaleImage.value),
+        transform: [
+            { translateX: translateX.value },
+            { translateY: translateY.value },
+        ],
+        };
+    });
+
+    const handleDeepLink = () => {
+        router.push('/pages/counter?value=75')
+    }
+
+
+    return (
+        <ScrollView contentContainerStyle={styles.scrollContainer}>
+            <View style={[styles.card]}>
+                <CustomText>Welcome!</CustomText>
+                <Text style={styles.title}>Hello Focus Bear User!</Text>
+
+                <Text style={styles.description}>This is the card component</Text>
+
+                <GestureDetector gesture={combinedGesture}>
+                    <Animated.Image
+                        style={imageStyle}
+                        resizeMode={"contain"}
+                        source={{ uri: "https://picsum.photos/seed/picsum/200/300" }}
+                    />
+                </GestureDetector>
+
+                <Link href="/pages/about">About Page</Link>
+                <Link href="/pages/contact">Contact Page</Link>
+                <Link href="/components/animatedView">Animated Page</Link>
+                <Link href="/pages/fetch">Fetch Page</Link>
+                <Link href="/pages/addition">Sum A n B Page</Link>
+                <Link href="/pages/userInteraction">Testing User Interaction</Link>
+                <Link href="/pages/counter">Counter Page</Link>
+                <Link href="/pages/profile">Profile Page</Link>
+                <Link href="/pages/responsive">Responsive Page</Link>
+
+                <Button 
+                    title="Open Counter (value=25)" 
+                    onPress={handleDeepLink}
+                />
+            
+            </View>
+        </ScrollView>
+    );
+};
+
+export default Home;
+
+const styles = StyleSheet.create({
+    scrollContainer: {
+        flexGrow: 1, 
+        justifyContent: "center",
+        alignItems: "center",
+        paddingVertical: 20,
+    },
+    card: {
+        padding:16,
+        borderRadius: 8,
+        backgroundColor: "#FBBF6B",
+        alignItems: "center",
+        margin:20,
+        gap:10
+
+    },
+
+    title: {
+        fontSize: 30,
+        fontWeight: "bold",
+        textAlign: "center",
+        margin: 20,
+    },
+
+    description: {
+        fontSize: 16,
+        marginVertical: 8,
+    },
+    image: {
+        width: 150,
+        height: 150,
+        marginVertical: 20,
+        borderRadius: 8
+    }
+});
+```
+
+[LINK TO CODE](https://github.com/StuvanFIT/Focus-Bear-React-Native/blob/fix/FocusBearQAFeedback/milestones/8_ReactNative/my-project/app/index.jsx)
+
+Before double clicking:
+
+![alt text](../Images/rn_gesture_animated0.png)
+
+After double clicking:
+
+![alt text](../Images/rn_gesture_animated1.png)
+
+Here, we are creating a gesture handler feature where if the user double taps the image, it increases in size by double. If the image is already doubled in size and is double tapped, it decreases back to original size.
+
+Using the react native reanimated library, there is also a "spring" animation when the image is double tapped.
+
+Additionally, we also attached a drag feature to the image, making it draggable across the screen
+
+![alt text](../Images/rn_gesture_animated2.png)
+
+![alt text](../Images/rn_gesture_animated3.png)
+
+As you can see, the double tap still works.
+
+Challenges:
+
+Implementing the gesture and animation was mostly smooth, but I did face some challenges getting the drag and double-tap gestures to work together without conflict. Once I learned about combining them using Gesture.Simultaneous, the developer experience matched what I found in my research, intuitive and powerful, especially with react native reanimated’s smooth animations.
 
 ## Animated API (JS THREAD)
 

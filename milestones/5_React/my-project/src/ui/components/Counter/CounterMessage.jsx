@@ -8,7 +8,7 @@ function CounterMessage() {
     const count = useSelector(selectCounterValue);
     let message;
 
-    if (count >10){
+    if (count > 10){
         message = "WE ARE OVER THE NUMBER 10!!!"
     } else if (count > 0){
         message= "KEEP GOING!!!"

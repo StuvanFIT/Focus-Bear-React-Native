@@ -8,6 +8,14 @@
 Example of me initiating a Pull Request with a reviewer/peer:
 <https://github.com/Monash-FIT3170/2025W2-Skilltree/pull/150>
 
+![alt text](../Images/initiatingPR.png)
+
+This is me initiating the PR
+
+![alt text](../Images/initiatingPR2.png)
+
+Fixed any issues my peers have brought up
+
 ### What are Pull Requests (PR)?
 
 A Git Pull Request (PR) is a proposal to merge set of changes from one branch into another branch. In these Pull Requests, collaborators can review and discuss the proposed changes before they are fully integrated into the destination branch.  
@@ -28,6 +36,8 @@ Having a Pull Request template. This allows for Pull Requests to be standardised
 - Checklist for code quaity (i.e. Have I included comments in complex sections?)
 
 ### What did you learn from reviewing an open-source PR?
+
+![alt text](../Images/reviewingOpenSourcePR.png)
 
 Almost every good PR ive seen contain comments and active/productive discussions on how to improve on the code or potential issues in the PR. Even if the change is really small, it would include comments on what to improve on in the future or dependencies.
 
@@ -65,7 +75,9 @@ For example: feat: allow system to send email to customer when email is sent
 
 2. If you need to roll back a specific change, unclear messages make it much harder to find the right commit to revert.
 
-### Examples of a different commit messages
+### Examples of different commit messages
+
+![alt text](../Images/differentCommitMessages.png)
 
 Vague Commit Message:
 
@@ -83,12 +95,10 @@ Overly detailed Message:
 A Well-structured Message:
 
 ```
-feat(home): add recent activities list with pull-to-refresh
+feat (Home):  add Home screen with navigation links
 
-- Implemented cards on HomeScreen to show uncompleted activities
-- Integrated RefreshControl for pull-to-refresh support
-- Updated theme colors for list items
-- Adjusted navigation stack to include HomeScreen
+- Implemented home screen card that styles the home page
+- Include navigational links using <Link/> to other pages
 
 ```
 
@@ -119,6 +129,12 @@ For example: git checkout main -- <file>
 **WHAT IT DOES**: This command restores a specific file from the main branch into your current branch. Does not have to be main branch it can be any git branch locally or remote.
 **WHEN TO USE**: If you’ve messed up a file locally and just want the version from the target branch, without touching your other changes.
 
+## Example of `checkout`
+
+![alt text](../Images/checkoutExample.png)`
+
+Here, I edited a read me file in a feature branch but decided that these changes were wrong and I wanted to revert back to the README file state in the main branch.
+
 ```
 git cherry-pick <commit>
 
@@ -127,6 +143,12 @@ git cherry-pick abcdefg
 
 **WHAT IT DOES**: Applies a specific commit from another branch into your current branch, without merging the whole branch.
 **WHEN TO USE**: If there’s a useful fix or feature in another branch that you want to pull in without merging all the other work from that branch. So, u are cherry picking which commites you want to merge without merging all the other commits. very useful for isolation testing with certain commits/bug fixing.
+
+## Example of `git cherry-pick`
+
+![alt text](../Images/cherryPickExample.png)
+
+Here, i added a read me file to the images directory. Then, committed the changes to the feature branch. I then decided that i wanted this readme file to be in the main branch without merging the entire feature branch.
 
 ```
 git log
@@ -140,12 +162,20 @@ git log --oneline --graph --decorate
 **WHAT IT DOES**: Shows the commit history the current repository
 **WHEN TO USE**: To review what’s been committed, who committed it, and when. Great for understanding project evolution and how it has changed.
 
+## Example of `git log`
+
+![alt text](../Images/gitLogExample.png)
+
 ```
 git blame <file>
 ```
 
 **WHAT IT DOES**: Shows which commit and which author last modified each line of a file.
 **WHEN TO USE**: To track down when/why a specific line of code was introduced or changed, and by whom
+
+## Example of `git blame`
+
+![alt text](../Images/gitBlameExample.png)
 
 ### What surprised you while testing these commands?
 
@@ -177,6 +207,31 @@ git bisect bad/good                                 #the current commit in the b
 
 git bisect reset
 ```
+
+### Example of executing a git
+
+link to test repo: [test repo](https://github.com/StuvanFIT/Focus-Bear-React-Native)
+
+![alt text](../Images/gitBisect1.png)
+
+The underlined red is the commit that introduced the bug. But lets say we didnt know which commit was the bae one. We will try using git bisect to identify the commit that introudced the bug.
+
+I made 2 commits where the first commit was functional and the other commit was a bug
+
+`git bisect bad`. Marks the current state of the branch as not working (bad commit)
+
+>NOTE: I used git log --oneline to view commit history with hashes
+
+![alt text](../Images/gitBisect2.png)
+
+Then, mark another point as the good commit using `git bisect good 287dda3` as i knew that this commit hash was functional and did not contain the bug. Then, we go through all possible commits and mark them as either a bad commit or good commit.
+
+![alt text](../Images/gitBisect3.png)
+
+We found our bad commit. Do a git bisect rest afterwards.
+This confirmed that the bug was introduced in my second commit.
+
+Through this exercise, I learned how git bisect can be used to efficiently find when a regression was introduced — an incredibly useful tool for debugging large projects.
 
 ### When would you use it in a real-world debugging situation?
 
@@ -223,6 +278,44 @@ The conflict happened because two different branches modified the same section o
 
 - Resolving merge conflics requires great attention to detail and the importance of clear commit messages which make it easier to understand what each branch is doing when conflicts arise.
 
+Below is an example of a simple merge conflict:
+
+- Branches involved: `fixFocusBearQAFeedback` and `another-dev-feature-branch`
+
+In one feature branch, developer A edited a file called README.md and psuhed the changes to the remote repo
+
+```
+I AM TESTING A FEATURE BRACH
+```
+
+Lets say developer B that is working on the same file but on a different branch, edits the same README.md file on the same exact line and pushes his/her changes into the remote repo
+
+```
+Hello World
+```
+
+Then, developer B wants to merge developers A feature branch into feature branch B. THere will be a merge conflict:
+
+![alt text](../Images/merge-conflict.png)
+
+To fix, this you need to decide whether to keep your CURRENT CHANGES, ACCEPT THE INCOMING CHANGES FROM FEATURE BRANCH B or accept BOTH CHANGES.
+
+In this case, I want to accept both changes.
+
+![alt text](../Images/resolution-merge-conflict.png)
+
+I found it interesting how Git marks conflicts with clear delimiters (<<<<<<<, =======, >>>>>>>). Initially, it was confusing which section belonged to which branch, but using the GitHub Desktop conflict resolver made it much clearer. This helped me understand how Git tracks and merges changes line-by-line.
+
+I also used the following command to view the entire git history and where the merge conflict occurred.
+
+```
+git log --oneline
+```
+
+commit hash: 516fe97 is where the merge resolution occurred
+
+![alt text](../Images/commit-log-merge-conflict.png)
+
 ---
 
 # Staging VS Committing
@@ -242,6 +335,10 @@ Note: you can easily remove/add products to the staging (shopping cart) but it i
 There are many benefits in having 2 steps.
 
 If makes your commits clearer and concise. You may have multiple changes to multiple files. These changes could be related or unrelated to each other. Thus, you can choose which files to add to the staging area and make sure that all changes related to each other are in one commit. So, you may have multiple changes in your working directory, but not all are ready to be committed and staging lets you pick and choose.
+
+### Example of staging vs commiting
+
+![alt text](../Images/stagingAndCommit.png)
 
 ### When would you want to stage changes without committing?
 

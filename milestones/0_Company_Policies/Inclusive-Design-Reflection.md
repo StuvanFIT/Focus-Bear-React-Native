@@ -39,8 +39,29 @@ Since there is a larger variety and preferences, we need to allow for more flexi
 - Overly complex UI and busy interfaces. For example, like too many options, cluttered dashboards and distracting animations
 - No ability to allow customisation or preferences. Not allowing customisation might make users feel restricted in their experience. For example, light/dark mode or the motivational quotes like cheerleader
 
+To make it focus bear more accessible:
+
+- Users could toggle off background animations or notification sounds if they find them distracting or overstimulating.
+- Offer high-contrast and simplified visual modes for users with visual sensitivities or ADHD who prefer low-clutter interfaces.
+
 ### What is one practical change you can make in your work to better support vulnerable populations?
 
 I want to make sure I understand the target vulnerable audience. Before I start designing a feature, I want to make sure I take into account how the vulnerable client would feel when using the application. For example, I would allow users to customise their notifications such as the overall tone (i.e. supportive  vs firm), frequency or format (text or sound/vibration)
 
 In this example, it makes sure that the design decision has incorporated the atarget audience and direclty support neurodivergent users (who may struggle with overstimulation), people with anxiety (who may find pushy reminders stressful), and anyone with unique focus needs.
+
+### Read a first-person account from someone with ADHD or Autism about their experiences with productivity tools
+
+I read this first-person account: [“ABC NEWS - WHATS IT LIKE TO HABE ADHD AS AN ADULT"](https://www.abc.net.au/news/2023-10-23/what-its-like-to-have-adhd-as-an-adult/103001096)
+
+The author described how simple daily tasks like starting chores or replying to messages can feel mentally exhausting because of executive dysfunction. What surprised me was how much guilt and self-blame they felt, even though it was a neurological issue, not a lack of willpower. It reminded me that for neurodivergent users, “motivation” isn’t about effort but about how environments and tools support focus. This made me think about building features that reduce friction (like fewer steps, clearer feedback, and flexible reminders). I want to able to help these people, especially in areas where I can make their life easier.
+
+This quote from Scott who has ADHD: "Am I me? Or is my personality a property of my symptoms?" definitely signified how confusing it is to have ADHD as you dont know if you actually have it or not.
+
+### Practice writing a clear, patient, and supportive response to a hypothetical user struggling with executive functioning
+
+> Hey! No worries if you haven’t started your task yet. Almost all the time, getting started is often the hardest part.  
+> Let’s break it down together into smaller bits. For me, if i visually see things as smaller parts, its easier to start doing tasks?  
+> You got this, and every bit of progress counts.
+
+This message focuses on lowering pressure and creating momentum, which helps users with ADHD or executive functioning difficulties engage positively.

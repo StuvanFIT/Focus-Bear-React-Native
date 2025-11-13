@@ -44,3 +44,9 @@ Benefits:
 ### Identify one way you can improve task tracking in your role
 
 During my past project teams where we've used kanban boards, Ive struggled to consistently update the board at the end of each feauture completion. Sometimes tasks live in my head instead of the board, which makes it harder for teammates to see my progress. By making sure everything is logged and updated, I can improve overall team transparency and make collaboration smoother.
+
+### Example of moving task in kanban
+
+![alt text](../Images/kanbanexample.png)
+
+Moved the `Agile ceromonies and team collaboration` and `Agile workflows in Kanban` tasks from backlog to `In Progress` status column.

@@ -63,7 +63,7 @@ function TestingUseEffect() {
 
         // Cleanup function
         return () => {
-            console.log("🧹 Cleaning up fetch (aborting request)");
+            console.log("Cleaning up fetch (aborting request)");
             controller.abort();
         };
 
@@ -95,6 +95,38 @@ function TestingUseEffect() {
 }
 
 export default TestingUseEffect;
+```
+
+## Testing useEffect in practice
+
+[LINK TO TestingUserEffect component](https://github.com/StuvanFIT/Focus-Bear-React-Native/blob/main/milestones/5_React/my-project/src/ui/components/TestingUseEffect.jsx)
+
+Here, is the code for testing userEffect and mounting/unmounting. We have console logs and will tell us if the component/section has unmounted/mounted or not.
+
+![alt text](../Images/useEffectTesting.png)
+
+![alt text](../Images/useEffectExample.png)
+
+We can see that "COMPONENT HAS MOUNTED" text being printed, meaning that the component has sucessfulyl mounted. If I navigate to the Profile page we created earlier, then we can see that the "COMPONENT HAS UNMOUNTED".
+
+![alt text](../Images/unmounting.png)
+
+## Before clicking the button (fetch api)
+
+![alt text](../Images/beforeFetchData.png)
+
+## After clicking the button (fetch api)
+
+![alt text](../Images/afterFetchData.png)
+
+Here, we also implemented a cleanup function after we have finished fetching the data
+
+```
+// Cleanup function
+return () => {
+    console.log("Cleaning up fetch");
+    controller.abort();
+};
 ```
 
 ### When should you use useEffect instead of handling logic inside event handlers ?
@@ -174,7 +206,11 @@ So effectively, it’s the same as:
 const memoizedValue = computeExpensiveValue(a, b);
 ```
 
-Example of using useMemo
+## Example of using useMemo
+
+[LINK TO TestingUseMemo Component](https://github.com/StuvanFIT/Focus-Bear-React-Native/blob/main/milestones/5_React/my-project/src/ui/components/TestingUseMemo.jsx)
+
+![alt text](../Images/TestingUseMemo.png)
 
 ```
 import React, {useState, useMemo} from "react";
@@ -241,6 +277,21 @@ function TestingUseMemo() {
 export default TestingUseMemo;
 ```
 
+Running useMemo:
+
+![alt text](../Images/TestingUseMemo2.png)
+
+To test if the sum value is cached, we will implement a button that changes the state of count
+and force the component to re render. We should see that the computeSum did not execute and we used the previous value.
+
+When clicking “Re-render”, the component re-renders but the console does not log "I am inside USEMEMO", confirming that the previous computation was cached and not recalculated.
+However, clicking “Increase the multiplier” triggers "I am inside USEMEMO" again because the dependency (multiplier) changed, causing React to recompute the value.
+
+This exercise clearly showed how useMemo improves performance in React when dealing with expensive computations.
+Initially, when I removed useMemo, the console logged "I am inside USEMEMO" every time I re-rendered and even if the multiplier didn’t change. The UI became noticeably slower and lagged slightly due to the repeated nested loops running thousands of iterations.
+
+After adding useMemo, React only recomputed when the multiplier dependency changed, keeping the app responsive. This reinforced my understanding that useMemo should be used selectively for heavy computations to prevent unnecessary work and improve render performance.
+
 ### How does useMemo improve performance?
 
 useMemo aims to improve performance by caching the result of the previous/latest computation. Extremely useful for costly computations.
@@ -261,6 +312,32 @@ If we remove useMemo from the above example, then the `computeSum` will run ever
 [useCallBack docs](https://react.dev/reference/react/useCallback)
 
 useCallback is a React Hook that lets you cache a function definition between re-renders. It does this by returning a memoised version of the function, keeping the same function reference between re-renders unless one of its dependencies change.
+
+## Example of TestingUseCallBack
+
+[LINK TO GITHUB USECALLBACK COMPONENT](https://github.com/StuvanFIT/Focus-Bear-React-Native/blob/main/milestones/5_React/my-project/src/ui/components/TestingUseCallBack.jsx)
+
+![alt text](../Images/TestingUseCallBack.png)
+
+![alt text](../Images/withoutUseCallBack.png)
+
+Without useCallback:
+
+- Toggling the theme state caused both the parent and the child to re-render.
+- In the console, you can see ChildButton logging "CHILD COMPONENT IS RENDERED" on every parent re-render, even though the child’s output did not change.
+
+![alt text](../Images/withUseCallBack.png)
+
+With useCallback:
+
+- Wrapping handleIncrement with useCallback and memoiding ChildButton ensures the child does not re-render when the theme toggles.
+- Only the parent re-renders. The console confirms this with no new logs from the child.
+
+Reflection:
+
+When testing this component, I initially observed that toggling the theme caused unnecessary re-renders of the child, even though the button’s behavior and UI didn’t change. But after wrapping handleIncrement with a useCallBack and memoising the child button component, there was a clear improvement: no child re-renders and console logs messages were expected.
+
+THis shows that how `useCallback` combined with memo helps optimise performance in real scenarios, especially with expensive child components or large lists.
 
 ### What problem does useCallback solve?
 

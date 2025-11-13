@@ -38,6 +38,15 @@ axiosInstance.interceptors.request.use(
     }
 )
 
+axiosInstance.interceptors.request.use(
+  (config) => {
+    console.log("Request config:", config); 
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
+
+
 
 
 
