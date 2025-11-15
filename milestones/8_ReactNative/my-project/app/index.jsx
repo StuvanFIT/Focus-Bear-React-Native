@@ -48,6 +48,7 @@ const Home = () => {
     });
 
     const handleDeepLink = () => {
+        console.log("Deep linking to counter")
         router.push('/pages/counter?value=75')
     }
 

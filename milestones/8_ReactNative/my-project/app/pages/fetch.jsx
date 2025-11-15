@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, View, ActivityIndicator } from "react-native";
-import { Link } from "expo-router";
+
 
 const Fetch = () => {
 
@@ -10,7 +10,10 @@ const Fetch = () => {
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/users')
         .then(res => res.json())
-        .then(data => setUsers(data))
+        .then(data => {
+            setUsers(data)
+            console.log(data)
+        })
         .catch((err) => console.error(err))
         .finally(() => setLoading(false))
     },[]) //run once on mount

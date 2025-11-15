@@ -27,6 +27,32 @@ Metro categorises logs automatically:
 
 Each appears in colour-coded form to help you identify them quickly.
 
+### Example of my Metro Logs
+
+![alt text](../Images/rn_debugging1.png)
+
+Here, I can use the metro logs as a way to do print debugging.
+
+### Example of using React Native Debugger Tool
+
+![alt text](../Images/rn_debugging2.png)
+
+We can also view the print logs in the React native dev tool
+
+### Example of inspecting network requests in react native
+
+![alt text](../Images/networkRequest.png)
+
+In React Dev Tools, you can press the network tab and view the network requests. In this example, in the `fetch` page, I am fetching the users data in a api placeholder.
+
+>NOTE: React Devtools was made to be very similar to the web dev tools, looks exactly the same thing
+
+### Challenges when setting using the Dev Tool
+
+I had an issue where the in the networks tab, the api requests werent showing. I tried looking at multiple stack overflow threads from 10 years ago that might resolve my issue. For example, most of the solutions invovled enabling network requests in your simulator. But the issue was that I was using Expo go on my phone.
+
+Well, I later found out this was simply because my internet connection at the time was not stable at all and was slow. Mobile data did not work as well. I confirmed this as I navigated to the `fetch` page, the app could no longer fetch the data and even timed out due to poor connection.
+
 ### How does Metro help in debugging a React Native app?
 
 Metro is the JavaScript bundler that runs when a React Native app starts. It helps with debugging by displaying real-time logs, errors, and warnings directly in the terminal
