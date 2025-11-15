@@ -59,3 +59,30 @@ We are replacing the fetch() with a fake dummy that pretends to cal the API and 
 ## What’s the difference between unit and integration tests?
 
 Unit tests involve one small piece of logic (function, hook, or component), whilst integration tests involve multiple components or modules and how tey interact with each other. So Unit tests are preferred if you want to test a single component in isolation whilst integration testing is preferred to ensure different parts of the app integrate correctly.
+
+## React Native Testing Demonstration
+
+Code snippets of tests:
+![alt text](rn_test_3.png)
+
+![alt text](rn_test_4.png)
+
+![alt text](rn_test_5.png)
+
+![alt text](rn_test_2.png)
+
+![alt text](rn_test_6.png)
+
+Output:
+
+![alt text](rn_test_1.png)
+
+In this case, I am testing the following React native features:
+
+- Counter.jsx: checking if the counter renders completely and it starts with a value of 0
+- Addition.jsx: computing sums with multiple edge cases correctly
+- Checking if fetch api works and user's name appears coorectly
+- Greeting.jsx displays name correctly
+- User interaction when pressing a button and makes sure it works as expected (i.e. increments count when button is pressed)
+
+I learnt that 

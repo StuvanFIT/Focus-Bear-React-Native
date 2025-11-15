@@ -1,5 +1,5 @@
 import Counter from '../pages/counter';
-import { renderWithRedux } from './renderWithRedux';
+import { renderWithRedux } from '../redux/renderWithRedux';
 
 describe('Testing counter page', () => {
 

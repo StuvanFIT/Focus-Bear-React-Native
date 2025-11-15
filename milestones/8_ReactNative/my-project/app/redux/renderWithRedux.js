@@ -1,7 +1,7 @@
 import {render} from '@testing-library/react-native';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../redux/reducers/counter'
+import counterReducer from './reducers/counter'
 /*
 Writing this for every test case: <Provider store={store}>
             <Counter/>
