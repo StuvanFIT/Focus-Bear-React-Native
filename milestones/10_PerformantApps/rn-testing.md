@@ -85,4 +85,4 @@ In this case, I am testing the following React native features:
 - Greeting.jsx displays name correctly
 - User interaction when pressing a button and makes sure it works as expected (i.e. increments count when button is pressed)
 
-I learnt that 
+I learnt that in order to write test cases you need to consider all possible cases otherwise certain bugs may slip through. In this case, using AI tools like gpt and talking back n forth about possible test cases is useful here.
