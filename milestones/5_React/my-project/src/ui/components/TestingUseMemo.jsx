@@ -12,7 +12,7 @@ function TestingUseMemo() {
     const [multiplier, setMultiplier] = useState(1);
 
     const numbers = Array.from({ length: 10000 }, (_, i) => i + 1);
-
+    
 
     //Expensive calculation
     const computeSum = useMemo(() => {

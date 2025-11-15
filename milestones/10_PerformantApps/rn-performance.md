@@ -167,3 +167,12 @@ Used to be a stable in react native
 
 - Provides profiling tools specifically for the Hermes JS engine.
 - Helps monitor JS performance and memory usage.
+
+## Example of using React Native monitoring tools during onboarding session
+
+![alt text](../Images/rn_useCallBack.png)
+
+I opened my Expo app using `npm run start` or the `npx expo start`, connected and pressed 'j' to open the React DevTools, and used the Profiler tab to record a render. I also opened up the React Dev Tools console tab to view any of my console logs.
+I noticed in my `<Addition/>` component, it was computing child re-renders, even if the reference did not change at all. So I needed a way that only re-renders when the callback change. In the metro logs, you can see ChildButton logging "CHILD COMPONENT IS RENDERED" on every parent re-render, even though the child’s output did not change.
+
+I fixed it using `useCallback` which memoised the function reference and only changes when the `firstInteger` or `secondInteger` changes.

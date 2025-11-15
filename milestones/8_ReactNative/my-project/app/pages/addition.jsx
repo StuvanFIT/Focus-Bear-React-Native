@@ -1,5 +1,5 @@
 import { Link } from "expo-router";
-import { useState } from "react";
+import { useState, useCallback, memo } from "react";
 import { StyleSheet, Text, TextInput, View, Button } from "react-native";
 
 
@@ -7,19 +7,24 @@ export function sumIntegers(a, b) {
   return Number(a) + Number(b);
 }
 
+//Child component that logs when it re-renders
+const ChildButton = memo(({ onClick }) => {
+  console.log('CHILD COMPONENT IS RENDERED');
+  return <Button title="COMPUTE SUM" onPress={onClick}/>
+});
 
 
 const Addition = () => {
 
     const [firstInteger, setFirstInteger] = useState('');
     const [secondInteger, setSecondInteger] = useState('');
-    const [result, setResult] = useState(null);
+    const [result, setResult] = useState(0)
 
-    const handleSum = () => {
-        const sum = sumIntegers(firstInteger, secondInteger)
-        console.log(sum)
-        setResult(sum)
-    }
+    const handleSum = useCallback(() => {
+      const sum = sumIntegers(firstInteger, secondInteger)
+      setResult(sum)
+    }, [firstInteger, secondInteger])
+
 
 
     return (
@@ -43,7 +48,7 @@ const Addition = () => {
                 style={{ borderWidth: 1, marginBottom: 10, padding: 8 }}
              />
 
-             <Button title="Calculate Sum" onPress={handleSum} />
+            <ChildButton onClick={handleSum} />
 
             {result !== null && (
                 <Text style={styles.result}>This is the current result: {result}</Text>
